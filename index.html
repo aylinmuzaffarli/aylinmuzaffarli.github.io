@@ -8,15 +8,24 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=stylesheet" />
 
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Meta Tags for SEO -->
+<meta name="description" content="Portfolio of Aylin Muzaffarli – student, creator, and physics/AI enthusiast.">
+<meta property="og:title" content="Aylin Muzaffarli's Personal Site">
+<meta property="og:description" content="Explore Aylin Muzaffarli's projects and journey in AI, physics, and robotics.">
+<meta property="og:type" content="website">
+
 <style>
 :root {
-  --dark-navy: #0a192f;
+  --dark-navy: #121212;
   --warm-cream: #fdfaf6;
   --soft-gray: #e5e7eb;
   --slate: #1e293b;
   --text-light: #f9fafb;
-  --accent-blue: #3b82f6;
-  --accent-purple: #6366f1;
+  --accent-blue: #2563eb;
+  --accent-purple: #7c3aed;
   --glass-bg: rgba(255,255,255,0.15);
   --glass-border: rgba(255,255,255,0.3);
 }
@@ -30,56 +39,82 @@ body {
   line-height: 1.8;
 }
 
+/* Light Theme */
+:root[data-theme="light"] {
+  --dark-navy: #fdfaf6;
+  --warm-cream: #121212;
+  --soft-gray: #4b5563;
+  --slate: #e5e7eb;
+  --text-light: #1e293b;
+  --accent-blue: #2563eb;
+  --accent-purple: #7c3aed;
+  --glass-bg: rgba(10,25,47,0.15);
+  --glass-border: rgba(10,25,47,0.3);
+}
+
 /* NAV */
 nav {
-  position:sticky; top:0; z-index:10;
-  display:flex; justify-content:space-between; align-items:center;
-  padding:1rem 3rem;
-  background: rgba(10,25,47,0.85);
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 3rem;
+  background: rgba(18,18,18,0.85);
   backdrop-filter: blur(8px);
 }
 nav .logo {
   font-family: 'Sora', sans-serif;
-  font-size:2rem; font-weight:700; color:var(--accent-blue); letter-spacing:0.05em;
+  font-size: 2rem; font-weight: 700; color: var(--accent-blue); letter-spacing: 0.05em;
 }
-nav ul { list-style:none; display:flex; gap:2rem; }
+nav ul { list-style: none; display: flex; gap: 2rem; }
 nav a {
-  text-decoration:none; color:var(--accent-blue); font-weight:600;
+  font-family: 'Sora', sans-serif;
+  text-decoration: none; color: var(--accent-blue); font-weight: 600;
   transition: color 0.3s ease, transform 0.3s ease;
 }
-nav a:hover { color:var(--accent-purple); transform: scale(1.05); }
+nav a:hover { color: var(--accent-purple); transform: scale(1.05); }
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.theme-toggle:hover { color: var(--accent-purple); }
 
 /* HERO */
 .hero {
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  text-align:center; min-height:100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; min-height: 100vh;
   background: radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%), var(--dark-navy);
 }
 .hero-subtitle {
-  font-family:'Sora',sans-serif; font-size:1rem;
-  letter-spacing:0.15em; text-transform:uppercase;
-  color: var(--accent-purple); margin-bottom:1rem;
+  font-family: 'Sora', sans-serif; font-size: 1rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent-purple); margin-bottom: 1rem;
 }
 .hero h1 {
-  font-family:'Sora',sans-serif;
-  font-size: clamp(3rem,8vw,6rem); font-weight:700; letter-spacing:0.08em;
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem); font-weight: 700; letter-spacing: 0.08em;
+  color: var(--accent-blue);
 }
 .hero p {
-  font-size:1.8rem; max-width:900px; color:var(--soft-gray); margin-top:1rem;
-  font-weight:500; letter-spacing:0.02em; line-height:1.6;
+  font-size: 1.8rem; max-width: 900px; color: var(--soft-gray); margin-top: 1rem;
+  font-weight: 500; letter-spacing: 0.02em; line-height: 1.6;
 }
 
 /* LONGER SECTIONS */
-section { padding:20rem 0; width:100%; }
-#info { padding:0.5rem 0; } /* Further reduced padding for Info section */
+section { padding: 10rem 0; width: 100%; }
+#info { padding: 0.5rem 0; }
 
 /* BACKGROUNDS */
 .projects {
-  background: linear-gradient(135deg, #fdfaf6, #f1eee9);
+  background: linear-gradient(135deg, var(--warm-cream), #f1eee9);
   color: var(--dark-navy);
 }
 .updates {
-  background: linear-gradient(135deg, #e5e7eb, #dcdfe4);
+  background: linear-gradient(135deg, var(--soft-gray), #dcdfe4);
   color: var(--dark-navy);
 }
 #info, #contact { background: var(--slate); }
@@ -87,48 +122,53 @@ section { padding:20rem 0; width:100%; }
 /* CARD GRID */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
-  gap:2.5rem; width:100%; padding:0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem; width: 100%; padding: 0 1rem;
 }
 
-/* GLASS CARD with shine animation */
+/* GLASS CARD with animations */
 @keyframes shine {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
-.card {
-  position:relative; height:auto; display:flex; flex-direction: column;
-  justify-content: center; align-items: center; padding: 1.5rem;
-  font-family:'Sora',sans-serif; font-size:1.5rem; font-weight:600; text-align:center;
-  color: var(--dark-navy); cursor:pointer; overflow:hidden;
-  backdrop-filter: blur(25px); border-radius:20px; z-index:0;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-  transform:translateY(30px); opacity:0;
-  transition: transform 0.6s ease, opacity 0.6s ease, scale 0.3s ease;
-  background: var(--glass-bg);
-  border:1.5px solid var(--glass-border);
+@keyframes slideIn {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
-.card:hover { 
-  transform:translateY(-8px); 
-  scale: 1.05; 
+.card {
+  position: relative; height: auto; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; padding: 1.5rem;
+  font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 600; text-align: center;
+  color: var(--dark-navy); cursor: pointer; overflow: hidden;
+  backdrop-filter: blur(10px); border-radius: 16px; z-index: 0;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+  background: var(--glass-bg);
+  border: 1.5px solid var(--glass-border);
+  animation: slideIn 0.6s ease-out forwards;
+}
+.card:hover {
+  transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
+  border-color: var(--accent-blue);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 10px var(--accent-blue);
 }
 .card::before {
-  content:""; position:absolute; top:0;left:0;right:0;bottom:0;
+  content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0) 60%);
   background-size: 200% 100%;
   animation: shine 5s linear infinite;
-  border-radius:20px; pointer-events:none;
+  border-radius: 16px; pointer-events: none;
 }
-.card p { font-size: 1.2rem; margin: 0.5rem 0; font-weight: 500; color: var(--dark-navy); }
-.card a { color: var(--accent-blue); text-decoration: none; font-size: 1.2rem; }
+.card h3 { color: var(--accent-blue); }
+.card p { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; margin: 0.5rem 0; font-weight: 500; color: var(--dark-navy); }
+.card a { font-family: 'Sora', sans-serif; color: var(--accent-blue); text-decoration: none; font-size: 1.2rem; }
 .card a:hover { color: var(--accent-purple); }
 
 /* TITLES */
 .section-title {
-  font-family:'Sora',sans-serif; font-size:3.2rem; font-weight:700; text-align:center;
-  margin-bottom:3rem; letter-spacing:0.05em; color: var(--accent-blue);
-  transform:translateY(20px); opacity:0;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  font-family: 'Sora', sans-serif; font-size: 3.2rem; font-weight: 700; text-align: center;
+  margin-bottom: 3rem; letter-spacing: 0.05em; color: var(--accent-blue);
+  transform: translateY(20px); opacity: 0;
+  animation: slideIn 0.6s ease-out forwards;
 }
 
 /* INFO subsection styling */
@@ -138,7 +178,7 @@ section { padding:20rem 0; width:100%; }
   margin-bottom: 1rem;
 }
 .info-section p, .info-section ul {
-  font-size: 1.4rem; color: var(--soft-gray); line-height: 1.6; margin-bottom: 1rem;
+  font-family: 'DM Sans', sans-serif; font-size: 1.4rem; color: var(--soft-gray); line-height: 1.6; margin-bottom: 1rem;
 }
 .info-section ul { list-style: disc; padding-left: 2rem; }
 .info-section ul li { margin-bottom: 0.5rem; }
@@ -147,15 +187,13 @@ section { padding:20rem 0; width:100%; }
 
 /* CONTACT text and button */
 #contact p {
-  font-size: 1.8rem; max-width: 900px; margin: 0.5rem auto; color: var(--soft-gray);
+  font-family: 'DM Sans', sans-serif; font-size: 1.8rem; max-width: 900px; margin: 0.5rem auto; color: var(--soft-gray);
   font-weight: 500; letter-spacing: 0.02em; line-height: 1.6; text-align: center;
 }
 #contact a {
   color: var(--accent-blue); text-decoration: none; transition: color 0.3s ease;
 }
-#contact a:hover {
-  color: var(--accent-purple);
-}
+#contact a:hover { color: var(--accent-purple); }
 .resume-button {
   display: inline-block;
   margin-top: 1rem;
@@ -168,83 +206,43 @@ section { padding:20rem 0; width:100%; }
   border: 1.5px solid var(--glass-border);
   border-radius: 10px;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .resume-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  color: var(--accent-purple);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2), 0 0 10px var(--accent-blue);
+  border-color: var(--accent-blue);
 }
 .hero-link {
+  font-family: 'Sora', sans-serif;
   color: var(--accent-blue);
   text-decoration: none;
   font-size: 1.4rem;
   font-weight: 500;
   transition: color 0.3s ease;
 }
-.hero-link:hover {
-  color: var(--accent-purple);
-}
-.resume-container {
-  text-align: center;
-}
+.hero-link:hover { color: var(--accent-purple); }
+.resume-container { text-align: center; }
 
 /* New container for resume button between sections */
 .resume-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 0; /* Adjust padding to control vertical spacing */
+  padding: 4rem 0;
   background: var(--slate);
 }
 
 /* Footer */
 footer {
-  text-align:center; padding:2rem; font-size:.9rem;
+  text-align: center; padding: 2rem; font-size: 0.9rem;
   background: var(--dark-navy); color: var(--text-light);
-  border-top:1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* SHOW CLASS */
-.show { opacity:1; transform:translateY(0);}
-
-/* Light Theme */
-:root[data-theme="light"] {
-  --dark-navy: #fdfaf6;
-  --warm-cream: #0a192f;
-  --soft-gray: #4b5563;
-  --slate: #e5e7eb;
-  --text-light: #1e293b;
-  --accent-blue: #2563eb;
-  --accent-purple: #7c3aed;
-  --glass-bg: rgba(10,25,47,0.15);
-  --glass-border: rgba(10,25,47,0.3);
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  color: var(--accent-blue);
-  font-family: 'Sora', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-.theme-toggle:hover {
-  color: var(--accent-purple);
-}
+.show { opacity: 1; transform: translateY(0); }
 </style>
-
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-<!-- Meta Tags for SEO -->
-<meta name="description" content="Portfolio of Aylin Muzaffarli – student, creator, and physics/AI enthusiast.">
-<meta property="og:title" content="Aylin Muzaffarli's Personal Site">
-<meta property="og:description" content="Explore Aylin Muzaffarli's projects and journey in AI, physics, and robotics.">
-<meta property="og:type" content="website">
-
 </head>
 <body>
 
@@ -371,19 +369,23 @@ footer {
 </footer>
 
 <script>
-// Reveal on scroll
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }})
-},{threshold:0.15});
-document.querySelectorAll('.card, .section-title').forEach(el=>observer.observe(el));
-
 // Theme Toggle
 function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', newTheme);
 }
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('show'); observer.unobserve(e.target); }})
+}, { threshold: 0.15 });
+document.querySelectorAll('.card, .section-title').forEach(el => observer.observe(el));
 </script>
 
+<!-- Notes for Aylin -->
+<!-- Animation Optimization: The slideIn animation uses CSS keyframes for lightweight performance. Ensure cross-browser compatibility by testing on Chrome, Firefox, and Safari. The tilt effect on hover uses transform: rotateX/Y for a subtle 3D effect without requiring JavaScript libraries. -->
+<!-- Cross-Browser Compatibility: The backdrop-filter property is supported in modern browsers (Chrome, Edge, Safari) but may not work in older versions or Firefox without enabling flags. Consider adding a fallback solid background (e.g., background: rgba(255,255,255,0.2)) for unsupported browsers. -->
+<!-- Favicon: Ensure 'favicon.ico' is in your site's root directory. If you encounter issues, verify the file path and format (ICO, PNG, or JPG are supported). -->
 </body>
 </html>
