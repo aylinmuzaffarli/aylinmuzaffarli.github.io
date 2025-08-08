@@ -27,6 +27,7 @@ body {
   background: var(--dark-navy);
   color: var(--text-light);
   scroll-behavior: smooth;
+  line-height: 1.8;
 }
 
 /* NAV */
@@ -96,16 +97,20 @@ section { padding:20rem 0; width:100%; }
   100% { background-position: 200% 0; }
 }
 .card {
-  position:relative; height:450px; display:flex; flex-direction: column;
+  position:relative; height:auto; display:flex; flex-direction: column;
   justify-content: center; align-items: center; padding: 1.5rem;
   font-family:'Sora',sans-serif; font-size:1.5rem; font-weight:600; text-align:center;
   color: var(--dark-navy); cursor:pointer; overflow:hidden;
   backdrop-filter: blur(25px); border-radius:20px; z-index:0;
   box-shadow: 0 12px 40px rgba(0,0,0,0.25);
   transform:translateY(30px); opacity:0;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  transition: transform 0.6s ease, opacity 0.6s ease, scale 0.3s ease;
   background: var(--glass-bg);
   border:1.5px solid var(--glass-border);
+}
+.card:hover { 
+  transform:translateY(-8px); 
+  scale: 1.05; 
 }
 .card::before {
   content:""; position:absolute; top:0;left:0;right:0;bottom:0;
@@ -114,7 +119,6 @@ section { padding:20rem 0; width:100%; }
   animation: shine 5s linear infinite;
   border-radius:20px; pointer-events:none;
 }
-.card:hover { transform:translateY(-8px); }
 .card p { font-size: 1.2rem; margin: 0.5rem 0; font-weight: 500; color: var(--dark-navy); }
 .card a { color: var(--accent-blue); text-decoration: none; font-size: 1.2rem; }
 .card a:hover { color: var(--accent-purple); }
@@ -171,7 +175,7 @@ section { padding:20rem 0; width:100%; }
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   color: var(--accent-purple);
 }
-  .hero-link {
+.hero-link {
   color: var(--accent-blue);
   text-decoration: none;
   font-size: 1.4rem;
@@ -203,7 +207,44 @@ footer {
 
 /* SHOW CLASS */
 .show { opacity:1; transform:translateY(0);}
+
+/* Light Theme */
+:root[data-theme="light"] {
+  --dark-navy: #fdfaf6;
+  --warm-cream: #0a192f;
+  --soft-gray: #4b5563;
+  --slate: #e5e7eb;
+  --text-light: #1e293b;
+  --accent-blue: #2563eb;
+  --accent-purple: #7c3aed;
+  --glass-bg: rgba(10,25,47,0.15);
+  --glass-border: rgba(10,25,47,0.3);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.theme-toggle:hover {
+  color: var(--accent-purple);
+}
 </style>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Meta Tags for SEO -->
+<meta name="description" content="Portfolio of Aylin Muzaffarli – student, creator, and physics/AI enthusiast.">
+<meta property="og:title" content="Aylin Muzaffarli's Personal Site">
+<meta property="og:description" content="Explore Aylin Muzaffarli's projects and journey in AI, physics, and robotics.">
+<meta property="og:type" content="website">
+
 </head>
 <body>
 
@@ -215,6 +256,7 @@ footer {
     <li><a href="#updates">Updates</a></li>
     <li><a href="#info">Info</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button></li>
   </ul>
 </nav>
 
@@ -228,7 +270,6 @@ footer {
 <section id="projects" class="projects">
   <h2 class="section-title">My Projects & Ideas</h2>
   <div class="card-grid">
-
     <div class="card">
       <h3>AverlinMz — AI Chatbot</h3>
       <p>Developed a personalized chatbot to assist users with study goals, using advanced AI techniques for context awareness and emotional support.</p>
@@ -236,21 +277,18 @@ footer {
       <p>Represents my passion for AI, human-computer interaction, and personalized technology.</p>
       <a href="https://aylinmuzaffarli.github.io/averlinmz-site/" target="_blank">Project Link</a>
     </div>
-
     <div class="card">
       <h3>Atomaroid</h3>
       <p>An intelligent platform for physics olympiad preparation, offering problems, articles, and recommendations.</p>
       <p>Provides quality study materials to Russian-speaking students in Azerbaijan.</p>
       <a href="https://aylinmuzaffarli.github.io/Atomaroid/" target="_blank">Project Link</a>
     </div>
-
     <div class="card">
       <h3>CS50 at 14</h3>
       <p>A personal milestone project showcasing my journey through Harvard’s CS50 course at just 14 years old.</p>
       <p>Reflects a deep dive into computer science fundamentals, culminating in a self-built game and a thoughtfully documented learning journal.</p>
       <a href="https://aylinmuzaffarli.github.io/cs50-at-14/" target="_blank">Project Link</a>
     </div>
-
   </div>
 </section>
 
@@ -338,6 +376,13 @@ const observer = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }})
 },{threshold:0.15});
 document.querySelectorAll('.card, .section-title').forEach(el=>observer.observe(el));
+
+// Theme Toggle
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+}
 </script>
 
 </body>
