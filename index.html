@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title> Aylin Muzaffarli</title>
+<title>Aylin Muzaffarli</title>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=stylesheet" />
@@ -213,7 +213,7 @@ section { padding: 20rem 0; width: 100%; }
 
 /* Footer */
 footer {
-  text-align: center; padding: 2rem; font-size: 1.1rem; /* Increased font size */
+  text-align: center; padding: 2rem; font-size: 1.1rem;
   background: var(--dark-navy); color: var(--text-light);
   border-top: 1px solid rgba(255,255,255,0.1);
 }
@@ -233,12 +233,44 @@ footer {
     margin-bottom: 0.5rem;
   }
   nav ul {
-    flex-direction: column;
+    display: flex;
+    flex-wrap: nowrap;
     gap: 1rem;
+    justify-content: center;
+    width: 100%;
+  }
+  nav li {
+    flex: 0 0 auto;
+  }
+  /* First row: Home, Projects, Updates */
+  nav li:nth-child(1),
+  nav li:nth-child(2),
+  nav li:nth-child(3) {
+    flex: 1 1 30%;
     text-align: center;
   }
+  /* Second row: Info, Contact */
+  nav li:nth-child(4),
+  nav li:nth-child(5) {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+  nav li:nth-child(4) {
+    margin-left: 2.5%;
+  }
+  nav li:nth-child(5) {
+    margin-right: 2.5%;
+  }
+  /* Force line break after Updates */
+  nav li:nth-child(3)::after {
+    content: "";
+    display: block;
+    width: 100%;
+  }
   nav a {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    display: block;
   }
 
   /* Hero section */
@@ -247,7 +279,7 @@ footer {
     padding: 1rem;
   }
   .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 4rem); /* Adjusted for mobile */
+    font-size: clamp(2.5rem, 7vw, 4rem);
   }
   .hero p {
     font-size: 1.2rem;
@@ -323,7 +355,7 @@ footer {
 
   /* Footer */
   footer {
-    font-size: 0.9rem; /* Slightly smaller for mobile */
+    font-size: 0.9rem;
   }
 }
 </style>
