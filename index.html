@@ -4,17 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Aylin Muzaffarli</title>
-
 <link rel="icon" type="image/png" href="https://i.imgur.com/vFl6MkX.png">
-  <link rel="canonical" href="https://www.aylinmuzaffarli.com/" />
-
-
-
-
+<link rel="canonical" href="https://www.aylinmuzaffarli.com/" />
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=stylesheet" />
-
 <style>
 :root {
   --dark-navy: #0a192f;
@@ -27,7 +20,6 @@
   --glass-bg: rgba(255,255,255,0.15);
   --glass-border: rgba(255,255,255,0.3);
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'DM Sans', sans-serif;
@@ -36,7 +28,6 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-
 /* NAV */
 nav {
   position: sticky; top: 0; z-index: 10;
@@ -44,6 +35,7 @@ nav {
   padding: 1rem 3rem;
   background: rgba(10,25,47,0.85);
   backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 nav .logo {
   font-family: 'Sora', sans-serif;
@@ -54,10 +46,13 @@ nav ul {
 }
 nav a {
   text-decoration: none; color: var(--accent-blue); font-weight: 600;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
 }
 nav a:hover {
-  color: var(--accent-purple); transform: scale(1.05);
+  color: var(--accent-purple);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(99,102,241,0.4);
 }
 nav a.active {
   color: var(--accent-purple);
@@ -65,7 +60,6 @@ nav a.active {
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
-
 /* HERO */
 .hero {
   display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -77,6 +71,7 @@ nav a.active {
   letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--accent-blue); margin-bottom: 1rem;
   transition: color 0.3s ease;
+  animation: fadeIn 1s ease-out;
 }
 .hero-subtitle:hover {
   color: var(--accent-purple);
@@ -85,16 +80,41 @@ nav a.active {
   font-family: 'Sora', sans-serif;
   font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; letter-spacing: 0.08em;
   color: var(--accent-purple);
+  animation: bounceIn 1.2s ease-out;
 }
 .hero p {
   font-size: 1.8rem; max-width: 900px; color: var(--soft-gray); margin-top: 1rem;
   font-weight: 500; letter-spacing: 0.02em; line-height: 1.6;
+  animation: fadeIn 1.5s ease-out;
 }
-
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
 /* LONGER SECTIONS */
-section { padding: 20rem 0; width: 100%; }
+section {
+  padding: 20rem 0;
+  width: 100%;
+  position: relative;
+  transition: background-position 0.5s ease;
+}
+section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+  transition: transform 0.5s ease;
+}
+section.scrolled::before {
+  transform: translateY(20px);
+}
 #info { padding: 0.5rem 0; }
-
 /* BACKGROUNDS */
 .projects {
   background: linear-gradient(135deg, #fdfaf6, #f1eee9);
@@ -105,15 +125,13 @@ section { padding: 20rem 0; width: 100%; }
   color: var(--dark-navy);
 }
 #info, #contact { background: var(--slate); }
-
 /* CARD GRID */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
   gap: 2.5rem; width: 100%; padding: 0 1rem;
 }
-
-/* GLASS CARD with shine animation */
+/* GLASS CARD with enhanced shine animation */
 @keyframes shine {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -124,33 +142,38 @@ section { padding: 20rem 0; width: 100%; }
   font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 600; text-align: center;
   color: var(--dark-navy); cursor: pointer; overflow: hidden;
   backdrop-filter: blur(25px); border-radius: 20px; z-index: 0;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.3);
   transform: translateY(30px); opacity: 0;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  transition: all 0.6s ease;
   background: var(--glass-bg);
   border: 1.5px solid var(--glass-border);
 }
 .card::before {
   content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0) 60%);
+  background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0) 60%);
   background-size: 200% 100%;
-  animation: shine 5s linear infinite;
+  animation: shine 4s linear infinite;
   border-radius: 20px; pointer-events: none;
 }
-.card:hover { transform: translateY(-8px); }
+.card:hover {
+  transform: translateY(-8px) rotate(2deg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
 .card p { font-size: 1.2rem; margin: 0.5rem 0; font-weight: 500; color: var(--dark-navy); }
 .card a { color: var(--accent-blue); text-decoration: none; font-size: 1.2rem; }
 .card a:hover { color: var(--accent-purple); }
 .card ul { list-style: disc; padding-left: 1.5rem; text-align: left; font-size: 1.2rem; }
-
 /* TITLES */
 .section-title {
   font-family: 'Sora', sans-serif; font-size: 3.2rem; font-weight: 700; text-align: center;
   margin-bottom: 3rem; letter-spacing: 0.05em; color: var(--accent-blue);
-  transform: translateY(20px); opacity: 0;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  transform: translateX(-50px); opacity: 0;
+  transition: all 0.8s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
-
+.section-title.show {
+  transform: translateX(0); opacity: 1;
+}
 /* INFO subsection styling */
 .info-section { margin: 2rem auto; max-width: 900px; }
 .info-section h3 {
@@ -164,7 +187,6 @@ section { padding: 20rem 0; width: 100%; }
 .info-section ul li { margin-bottom: 0.5rem; }
 .info-section a { color: var(--accent-blue); text-decoration: none; }
 .info-section a:hover { color: var(--accent-purple); }
-
 /* CONTACT text and button */
 #contact p {
   font-size: 1.8rem; max-width: 900px; margin: 0.5rem auto; color: var(--soft-gray);
@@ -176,61 +198,65 @@ section { padding: 20rem 0; width: 100%; }
 #contact a:hover {
   color: var(--accent-purple);
 }
-.resume-button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.8rem 1.5rem;
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 2rem;
+}
+.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
   font-family: 'Sora', sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--text-light);
+  text-align: center;
+  color: var(--dark-navy);
   background: var(--glass-bg);
   border: 1.5px solid var(--glass-border);
   border-radius: 10px;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
 }
-.resume-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  color: var(--accent-purple);
+.contact-card:nth-child(1) { transition-delay: 0.1s; }
+.contact-card:nth-child(2) { transition-delay: 0.2s; }
+.contact-card:nth-child(3) { transition-delay: 0.3s; }
+.contact-card:nth-child(4) { transition-delay: 0.4s; }
+.contact-card.show { opacity: 1; transform: translateY(0); }
+.contact-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  animation: pulse 0.5s ease;
 }
-.hero-link {
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+.contact-card a {
   color: var(--accent-blue);
   text-decoration: none;
-  font-size: 1.4rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
 }
-.hero-link:hover {
+.contact-card a:hover {
   color: var(--accent-purple);
 }
-.resume-container {
-  text-align: center;
-}
-
-/* New container for resume button between sections */
-.resume-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 0;
-  background: var(--slate);
-}
-
 /* Footer */
 footer {
   text-align: center; padding: 2rem; font-size: 1.1rem;
   background: var(--dark-navy); color: var(--text-light);
   border-top: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
 }
-
 /* SHOW CLASS */
 .show { opacity: 1; transform: translateY(0); }
-
 /* Mobile-specific styles */
 @media (max-width: 768px) {
-  /* Adjust nav for mobile */
   nav {
     flex-direction: column;
     padding: 1rem;
@@ -249,14 +275,12 @@ footer {
   nav li {
     flex: 0 0 auto;
   }
-  /* First row: Home, Projects, Updates */
   nav li:nth-child(1),
   nav li:nth-child(2),
   nav li:nth-child(3) {
     flex: 1 1 30%;
     text-align: center;
   }
-  /* Second row: Info, Contact */
   nav li:nth-child(4),
   nav li:nth-child(5) {
     flex: 1 1 45%;
@@ -268,7 +292,6 @@ footer {
   nav li:nth-child(5) {
     margin-right: 2.5%;
   }
-  /* Force line break after Updates */
   nav li:nth-child(3)::after {
     content: "";
     display: block;
@@ -279,8 +302,6 @@ footer {
     padding: 0.5rem;
     display: block;
   }
-
-  /* Hero section */
   .hero {
     min-height: 80vh;
     padding: 1rem;
@@ -295,16 +316,12 @@ footer {
   .hero-subtitle {
     font-size: 0.9rem;
   }
-
-  /* Section padding */
   section {
     padding: 3rem 1rem;
   }
   #info {
     padding: 1rem 1rem;
   }
-
-  /* Card grid and cards */
   .card-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -315,6 +332,10 @@ footer {
     min-height: 300px;
     padding: 1rem;
     font-size: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  .card:hover {
+    transform: translateY(-5px) rotate(1deg);
   }
   .card p {
     font-size: 1rem;
@@ -326,14 +347,10 @@ footer {
     font-size: 1rem;
     padding-left: 1rem;
   }
-
-  /* Section titles */
   .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
   }
-
-  /* Info section */
   .info-section {
     margin: 1rem auto;
     max-width: 95%;
@@ -344,23 +361,19 @@ footer {
   .info-section p, .info-section ul {
     font-size: 1.1rem;
   }
-
-  /* Contact section */
   #contact p {
     font-size: 1.2rem;
     max-width: 95%;
   }
-  .resume-button {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .contact-card {
     font-size: 1rem;
-    padding: 0.6rem 1.2rem;
+    padding: 0.8rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   }
-
-  /* Resume section */
-  .resume-section {
-    padding: 2rem 0;
-  }
-
-  /* Footer */
   footer {
     font-size: 0.9rem;
   }
@@ -368,7 +381,6 @@ footer {
 </style>
 </head>
 <body>
-
 <nav>
   <div class="logo">Aylin</div>
   <ul>
@@ -379,14 +391,12 @@ footer {
     <li><a href="#contact" data-section="contact">Contact</a></li>
   </ul>
 </nav>
-
 <section id="home" class="hero">
   <span class="hero-subtitle">Welcome to my personal website</span>
   <h1>Aylin Muzaffarli</h1>
   <p>Student passionate about AI, physics, robotics. Creating meaningful projects, preparing for Olympiads, and dreaming big.</p>
   <p><a href="https://www.youtube.com/channel/UCsunkYku59IBKHwdb_pLzJw" target="_blank" class="hero-link">Check out my YouTube channel</a></p>
 </section>
-
 <section id="projects" class="projects">
   <h2 class="section-title">My Projects & Ideas</h2>
   <div class="card-grid">
@@ -418,9 +428,13 @@ footer {
         <li><a href="https://www.amazon.com/dp/B0FLD454M8" target="_blank">Paperback</a></li>
       </ul>
     </div>
+    <div class="card">
+      <h3>Understanding AI — How Machines Think vs Humans</h3>
+      <p>Discover how AI learns, makes decisions, and differs from human thinking, with real examples from my chatbot, AverlinMz.</p>
+      <a href="https://docs.google.com/document/d/1pzatz5bj6Ny-Hpx4EkdSN_vyG1kFElO6Ibc3knIH2Gc/preview" target="_blank">Read the Guide</a>
+    </div>
   </div>
 </section>
-
 <section id="updates" class="updates">
   <h2 class="section-title">What I'm working on</h2>
   <div class="card-grid">
@@ -429,49 +443,12 @@ footer {
     </div>
   </div>
 </section>
-
 <section id="info">
   <h2 class="section-title">About Me</h2>
   <div class="info-section">
     <h3>Profile</h3>
     <p>I am a passionate and determined student from Azerbaijan, driven by curiosity and an insatiable desire to explore the boundaries between AI, robotics, and physics. Currently in 9th grade, I balance a rigorous state curriculum with self-directed projects and preparations for national Olympiads. I seek not only academic achievement but also real-world impact — to build innovative technologies and ideas that challenge the status quo.</p>
     <p>I approach learning and creating with a mindset that blends relentless perseverance with a vision for transformative change. My goal is to contribute to groundbreaking advancements and inspire others through projects that embody creativity, depth, and social value.</p>
-  </div>
-  <div class="info-section">
-    <h3>Education</h3>
-    <p>Sumgait, 23rd School — Public Education (Standardized Curriculum)</p>
-    <ul>
-      <li>9th Grade Student</li>
-      <li>Estimated GPA: 3.8/4.0</li>
-      <li>Self-driven specialization in mathematics, physics, and informatics beyond the standard curriculum</li>
-    </ul>
-  </div>
-  <div class="info-section">
-    <h3>Ideas Paused & Reflections</h3>
-    <p><strong>Offline Wikipedia + AI Summarization Platform</strong></p>
-    <ul>
-      <li>Concept: An offline-accessible Wikipedia with AI-generated concise summaries and a modern, intuitive design to improve knowledge accessibility</li>
-      <li>Reason for pausing: The technical scope felt overwhelming at this stage, and motivation waned without a clear path for gradual development</li>
-    </ul>
-    <p><strong>Unique Blog with Articles and Personal Insights</strong></p>
-    <ul>
-      <li>Concept: A website sharing unique thoughts and reflections on science, technology, and personal growth</li>
-      <li>Reason for pausing: Difficulty maintaining consistent inspiration and concerns about audience engagement</li>
-    </ul>
-  </div>
-  <div class="info-section">
-    <h3>Skills & Interests</h3>
-    <ul>
-      <li><strong>Programming Languages:</strong> C, C++, Python</li>
-      <li><strong>Areas of Interest:</strong> Artificial Intelligence, Robotics, Physics Olympiads, Software Engineering</li>
-      <li><strong>Languages:</strong></li>
-      <ul>
-        <li>Azerbaijani (native)</li>
-        <li>English (fluent, self-taught through technical reading)</li>
-        <li>Russian (intermediate, conversational proficiency)</li>
-        <li>Turkish (conversational)</li>
-      </ul>
-    </ul>
   </div>
   <div class="info-section">
     <h3>Extracurricular Activities & Goals</h3>
@@ -482,25 +459,41 @@ footer {
     </ul>
   </div>
 </section>
-
-<div class="resume-section">
-  <div class="resume-container">
-    <a href="https://raw.githubusercontent.com/aylinmuzaffarli/aylinmuzaffarli.github.io/main/resume.pdf" download class="resume-button">My Full Resume.</a>
-  </div>
-</div>
-
 <section id="contact">
   <h2 class="section-title">Contact</h2>
-  <p>Reach out to me through this form: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJwedTUpvY1_0rPRf8RRr7mYzKa50tcft3gGFFnIO2anl5Yg/viewform?usp=header" target="_blank">Contact Form</a></p>
+  <p>Connect with me through my social media or email:</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <a href="https://www.facebook.com/profile.php?id=61573375073463" target="_blank">Facebook</a>
+    </div>
+    <div class="contact-card">
+      <a href="https://www.instagram.com/aylin.muzaffarli/" target="_blank">Instagram</a>
+    </div>
+    <div class="contact-card">
+      <a href="https://www.linkedin.com/in/aylin-muzaffarli-161261370/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="contact-card">
+      <a href="mailto:muzaffaraylin@gmail.com">Email</a>
+    </div>
+  </div>
   <p>I welcome connections, mentorship, and collaboration. Feel free to get in touch!</p>
 </section>
-
 <footer>
   © 2025 Aylin Muzaffarli — All Rights Reserved
 </footer>
-
 <script>
-// Reveal on scroll
+// Scroll-based section background effect
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('section').forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
+      section.classList.add('scrolled');
+    } else {
+      section.classList.remove('scrolled');
+    }
+  });
+});
+// Reveal on scroll for cards and titles
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -509,8 +502,7 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.15 });
-document.querySelectorAll('.card, .section-title').forEach(el => observer.observe(el));
-
+document.querySelectorAll('.card, .section-title, .contact-card').forEach(el => observer.observe(el));
 // Highlight active nav link
 const navObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -526,6 +518,5 @@ const navObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 document.querySelectorAll('section').forEach(section => navObserver.observe(section));
 </script>
-
 </body>
 </html>
