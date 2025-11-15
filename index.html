@@ -1,256 +1,230 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Portfolio of Aylin Muzaffarli">
+<meta name="author" content="Aylin Muzaffarli">
+<meta name="keywords" content="Aylin Muzaffarli, Portfolio, AI projects, CS50, Chatbot, Physics Olympiad, Robotics, AI Learning">
 <title>Aylin Muzaffarli</title>
-<link rel="icon" type="image/png" href="https://i.imgur.com/vFl6MkX.png">
+<link rel="icon" type="image/webp" href="https://i.imgur.com/DCU5epC_d.webp">
 <link rel="canonical" href="https://www.aylinmuzaffarli.com/" />
+<!-- Open Graph / Social Media -->
+<meta property="og:title" content="Aylin Muzaffarli Portfolio">
+<meta property="og:description" content="Portfolio of Aylin Muzaffarli, showcasing projects in AI, programming, and more.">
+<meta property="og:image" content="https://i.imgur.com/DCU5epC_d.webp">
+<meta property="og:url" content="https://www.aylinmuzaffarli.com/">
+<meta property="og:type" content="website">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aylin Muzaffarli Portfolio">
+<meta name="twitter:description" content="Portfolio of Aylin Muzaffarli, showcasing projects in AI, programming, and more.">
+<meta name="twitter:image" content="https://i.imgur.com/DCU5epC_d.webp">
+<!-- Theme color for mobile browsers -->
+<meta name="theme-color" content="#0A0F1A">
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=stylesheet" />
 <style>
 :root {
-  --dark-navy: #0a192f;
-  --warm-cream: #fdfaf6;
-  --soft-gray: #e5e7eb;
-  --slate: #1e293b;
-  --text-light: #f9fafb;
-  --accent-blue: #3b82f6;
-  --accent-purple: #6366f1;
-  --glass-bg: rgba(255,255,255,0.15);
-  --glass-border: rgba(255,255,255,0.3);
+  --primary-navy: #0A0F1A;
+  --secondary-charcoal: #111821;
+  --glass-slate: rgba(26, 35, 48, 0.45);
+  --accent-violet: #3B4A78;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --border-steel: #4B5563;
+  --shadow-subtle: rgba(0, 0, 0, 0.20);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--dark-navy);
-  color: var(--text-light);
+  font-family: 'Inter', sans-serif;
+  background: var(--primary-navy);
+  color: var(--text-primary);
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+.hero-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.hero-link:hover {
+  color: var(--text-primary);
+}
+
 /* NAV */
 nav {
   position: sticky; top: 0; z-index: 10;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 3rem;
-  background: rgba(10,25,47,0.85);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  padding: 1.5rem 3rem;
+  background: var(--glass-slate);
+  border-bottom: 1px solid var(--border-steel);
+  backdrop-filter: blur(10px);
 }
 nav .logo {
-  font-family: 'Sora', sans-serif;
-  font-size: 2rem; font-weight: 700; color: var(--accent-blue); letter-spacing: 0.05em;
+  font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em;
 }
 nav ul {
-  list-style: none; display: flex; flex-wrap: wrap; gap: 2rem;
+  list-style: none; display: flex; gap: 2.5rem;
 }
 nav a {
-  text-decoration: none; color: var(--accent-blue); font-weight: 600;
-  transition: all 0.3s ease;
-  padding: 0.5rem;
+  text-decoration: none; color: var(--text-primary); font-weight: 600;
+  transition: opacity 0.25s cubic-bezier(0.25,0.1,0.25,1);
+  padding: 0.5rem 0;
 }
 nav a:hover {
-  color: var(--accent-purple);
-  transform: scale(1.1);
-  box-shadow: 0 2px 8px rgba(99,102,241,0.4);
+  opacity: 0.7;
 }
 nav a.active {
-  color: var(--accent-purple);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
+  opacity: 1;
+  border-bottom: 1px solid var(--border-steel);
 }
 /* HERO */
 .hero {
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   text-align: center; min-height: 100vh;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 70%), var(--dark-navy);
-}
-.hero-subtitle {
-  font-family: 'Sora', sans-serif; font-size: 1rem;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--accent-blue); margin-bottom: 1rem;
-  transition: color 0.3s ease;
-  animation: fadeIn 1s ease-out;
-}
-.hero-subtitle:hover {
-  color: var(--accent-purple);
+  background: var(--primary-navy);
+  padding: 2rem;
 }
 .hero h1 {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; letter-spacing: 0.08em;
-  color: var(--accent-purple);
-  animation: bounceIn 1.2s ease-out;
+  font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; letter-spacing: 0.02em;
+  color: var(--text-primary);
+  opacity: 0;
+  animation: slowFade 3s ease-out forwards;
 }
 .hero p {
-  font-size: 1.8rem; max-width: 900px; color: var(--soft-gray); margin-top: 1rem;
-  font-weight: 500; letter-spacing: 0.02em; line-height: 1.6;
-  animation: fadeIn 1.5s ease-out;
+  font-size: 1.5rem; max-width: 900px; color: var(--text-secondary); margin-top: 1.5rem;
+  font-weight: 400; letter-spacing: 0.01em; line-height: 1.6;
+  opacity: 0;
+  animation: slowFade 3s ease-out 0.5s forwards;
 }
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes slowFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-@keyframes bounceIn {
-  0% { opacity: 0; transform: scale(0.8); }
-  50% { transform: scale(1.05); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes hang {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(0.5deg); }
+  100% { transform: translateY(-2px) rotate(0deg); }
 }
-/* LONGER SECTIONS */
+/* SECTIONS */
 section {
-  padding: 20rem 0;
+  padding: 10rem 0;
   width: 100%;
   position: relative;
-  transition: background-position 0.5s ease;
 }
-section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: -1;
-  transition: transform 0.5s ease;
-}
-section.scrolled::before {
-  transform: translateY(20px);
-}
-#info { padding: 0.5rem 0; }
-/* BACKGROUNDS */
+/* PROJECTS */
 .projects {
-  background: linear-gradient(135deg, #fdfaf6, #f1eee9);
-  color: var(--dark-navy);
+  background: var(--primary-navy);
 }
-
-#info, #contact { background: var(--slate); }
 /* CARD GRID */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
-  gap: 2.5rem; width: 100%; padding: 0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(380px,1fr));
+  gap: 2.5rem; width: 100%; padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
-/* GLASS CARD with enhanced shine animation */
-@keyframes shine {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
+/* MATTE GLASS CARD */
 .card {
-  position: relative; height: 450px; display: flex; flex-direction: column;
-  justify-content: center; align-items: center; padding: 1.5rem;
-  font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 600; text-align: center;
-  color: var(--dark-navy); cursor: pointer; overflow: hidden;
-  backdrop-filter: blur(25px); border-radius: 20px; z-index: 0;
-  box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-  transform: translateY(30px); opacity: 0;
-  transition: all 0.6s ease;
-  background: var(--glass-bg);
-  border: 1.5px solid var(--glass-border);
+  height: 320px; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; padding: 2rem;
+  font-size: 1.1rem; font-weight: 600; text-align: center;
+  color: var(--text-primary); cursor: pointer; overflow: hidden;
+  background: var(--glass-slate);
+  border: 1px solid var(--border-steel);
+  border-radius: 24px;
+  box-shadow: 0 4px 16px var(--shadow-subtle);
+  transform: translateY(0);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
 }
-.card::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0) 60%);
-  background-size: 200% 100%;
-  animation: shine 4s linear infinite;
-  border-radius: 20px; pointer-events: none;
+.card.show {
+  opacity: 1;
 }
 .card:hover {
-  transform: translateY(-8px) rotate(2deg);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  transform: translateY(-2px);
+  animation: hang 0.6s cubic-bezier(0.25,0.1,0.25,1) forwards;
+  box-shadow: 0 8px 24px var(--shadow-subtle);
 }
-.card p { font-size: 1.2rem; margin: 0.5rem 0; font-weight: 500; color: var(--dark-navy); }
-.card a { color: var(--accent-blue); text-decoration: none; font-size: 1.2rem; }
-.card a:hover { color: var(--accent-purple); }
-.card ul { list-style: disc; padding-left: 1.5rem; text-align: left; font-size: 1.2rem; }
+.card h3 {
+  font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-primary);
+}
+.card p {
+  font-size: 1rem; margin-bottom: 1.5rem; font-weight: 400; color: var(--text-secondary);
+}
+.card ul {
+  list-style: none; padding: 0; margin: 0.5rem 0;
+}
+.card ul li {
+  margin-bottom: 0.25rem;
+}
+.card a {
+  color: var(--text-secondary); text-decoration: none; font-size: 1rem;
+}
+.card a:hover {
+  color: var(--text-primary);
+}
+.card .free-extract {
+  margin-top: 0.5rem; font-size: 0.95rem;
+}
 /* TITLES */
 .section-title {
-  font-family: 'Sora', sans-serif; font-size: 3.2rem; font-weight: 700; text-align: center;
-  margin-bottom: 3rem; letter-spacing: 0.05em; color: var(--accent-blue);
-  transform: translateX(-50px); opacity: 0;
-  transition: all 0.8s ease;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-.section-title.show {
-  transform: translateX(0); opacity: 1;
-}
-/* INFO subsection styling */
-.info-section { margin: 2rem auto; max-width: 900px; }
-.info-section h3 {
-  font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 600; color: var(--accent-blue);
-  margin-bottom: 1rem;
-}
-.info-section p, .info-section ul {
-  font-size: 1.4rem; color: var(--soft-gray); line-height: 1.6; margin-bottom: 1rem;
-}
-.info-section ul { list-style: disc; padding-left: 2rem; }
-.info-section ul li { margin-bottom: 0.5rem; }
-.info-section a { color: var(--accent-blue); text-decoration: none; }
-.info-section a:hover { color: var(--accent-purple); }
-/* CONTACT text and button */
-#contact p {
-  font-size: 1.8rem; max-width: 900px; margin: 0.5rem auto; color: var(--soft-gray);
-  font-weight: 500; letter-spacing: 0.02em; line-height: 1.6; text-align: center;
-}
-#contact a {
-  color: var(--accent-blue); text-decoration: none; transition: color 0.3s ease;
-}
-#contact a:hover {
-  color: var(--accent-purple);
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-  padding: 0 1rem;
-  margin-top: 2rem;
-}
-.contact-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  font-family: 'Sora', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-align: center;
-  color: var(--dark-navy);
-  background: var(--glass-bg);
-  border: 1.5px solid var(--glass-border);
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
+  font-size: 3.5rem; font-weight: 700; text-align: center;
+  margin-bottom: 4rem; letter-spacing: 0.02em; color: var(--text-primary);
   opacity: 0;
   transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
 }
-.contact-card:nth-child(1) { transition-delay: 0.1s; }
-.contact-card:nth-child(2) { transition-delay: 0.2s; }
-.contact-card:nth-child(3) { transition-delay: 0.3s; }
-.contact-card:nth-child(4) { transition-delay: 0.4s; }
-.contact-card.show { opacity: 1; transform: translateY(0); }
-.contact-card:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-  animation: pulse 0.5s ease;
+.section-title.show {
+  opacity: 1;
+  transform: translateY(0);
 }
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
+/* CONTACT */
+#contact {
+  background: var(--primary-navy);
+  padding: 6rem 0 4rem;
 }
-.contact-card a {
-  color: var(--accent-blue);
-  text-decoration: none;
+#contact p {
+  font-size: 1.4rem; max-width: 900px; margin: 0 auto 3rem; color: var(--text-secondary);
+  font-weight: 400; letter-spacing: 0.01em; line-height: 1.5; text-align: center;
 }
-.contact-card a:hover {
-  color: var(--accent-purple);
+#contact a {
+  color: var(--text-secondary); text-decoration: none; transition: color 0.25s ease;
+}
+#contact a:hover {
+  color: var(--text-primary);
+}
+.contact-block {
+  max-width: 600px;
+  margin: 0 auto;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--glass-slate);
+  border: 1px solid var(--border-steel);
+  border-radius: 24px;
+  box-shadow: 0 4px 16px var(--shadow-subtle);
+  padding: 0;
+}
+.contact-block p {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-align: center;
+  transform: translateY(20px);
+}
+.contact-block a {
+  display: block;
 }
 /* Footer */
 footer {
-  text-align: center; padding: 2rem; font-size: 1.1rem;
-  background: var(--dark-navy); color: var(--text-light);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+  text-align: center; padding: 3rem; font-size: 1rem;
+  background: var(--primary-navy); color: var(--text-secondary);
+  border-top: 1px solid var(--border-steel);
 }
 /* SHOW CLASS */
 .show { opacity: 1; transform: translateY(0); }
@@ -259,47 +233,16 @@ footer {
   nav {
     flex-direction: column;
     padding: 1rem;
+    gap: 1.5rem;
   }
   nav .logo {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
   }
   nav ul {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    justify-content: center;
-    width: 100%;
-  }
-  nav li {
-    flex: 0 0 auto;
-  }
-  nav li:nth-child(1),
-  nav li:nth-child(2),
-  nav li:nth-child(3) {
-    flex: 1 1 30%;
-    text-align: center;
-  }
-  nav li:nth-child(4),
-  nav li:nth-child(5) {
-    flex: 1 1 45%;
-    text-align: center;
-  }
-  nav li:nth-child(4) {
-    margin-left: 2.5%;
-  }
-  nav li:nth-child(5) {
-    margin-right: 2.5%;
-  }
-  nav li:nth-child(3)::after {
-    content: "";
-    display: block;
-    width: 100%;
+    gap: 1.5rem;
   }
   nav a {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-    display: block;
+    font-size: 0.95rem;
   }
   .hero {
     min-height: 80vh;
@@ -312,69 +255,55 @@ footer {
     font-size: 1.2rem;
     max-width: 90%;
   }
-  .hero-subtitle {
-    font-size: 0.9rem;
-  }
   section {
-    padding: 3rem 1rem;
-  }
-  #info {
-    padding: 1rem 1rem;
+    padding: 5rem 1rem;
   }
   .card-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 0.5rem;
+    gap: 2rem;
+    padding: 0 1rem;
+    max-width: none;
   }
   .card {
     height: auto;
-    min-height: 300px;
-    padding: 1rem;
-    font-size: 1.2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    min-height: 280px;
+    padding: 1.5rem;
+    font-size: 1rem;
+    border-radius: 20px;
   }
-  .card:hover {
-    transform: translateY(-5px) rotate(1deg);
+  .card h3 {
+    font-size: 1.2rem;
   }
   .card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   .card a {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
-  .card ul {
-    font-size: 1rem;
-    padding-left: 1rem;
+  .card ul li {
+    margin-bottom: 0.2rem;
   }
   .section-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  .info-section {
-    margin: 1rem auto;
-    max-width: 95%;
-  }
-  .info-section h3 {
-    font-size: 1.5rem;
-  }
-  .info-section p, .info-section ul {
-    font-size: 1.1rem;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
   }
   #contact p {
     font-size: 1.2rem;
     max-width: 95%;
   }
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .contact-block {
+    margin: 0 1rem;
+    border-radius: 20px;
+    height: 150px;
+    padding: 0;
   }
-  .contact-card {
-    font-size: 1rem;
-    padding: 0.8rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  .contact-block p {
+    font-size: 1.1rem;
+    transform: translateY(15px);
   }
   footer {
     font-size: 0.9rem;
+    padding: 2rem 1rem;
   }
 }
 </style>
@@ -385,123 +314,74 @@ footer {
   <ul>
     <li><a href="#home" data-section="home">Home</a></li>
     <li><a href="#projects" data-section="projects">Projects</a></li>
-       <li><a href="#info" data-section="info">Info</a></li>
     <li><a href="#contact" data-section="contact">Contact</a></li>
   </ul>
 </nav>
 <section id="home" class="hero">
-  <span class="hero-subtitle">Welcome to my personal website</span>
   <h1>Aylin Muzaffarli</h1>
-  <p>Student passionate about AI, physics, robotics. Creating meaningful projects, preparing for Olympiads, and dreaming big.</p>
-  <p><a href="https://www.youtube.com/channel/UCsunkYku59IBKHwdb_pLzJw" target="_blank" class="hero-link">Check out my YouTube channel</a></p>
+  <p>
+    Welcome. This space contains my work.<br>
+    Projects are listed in the Projects section.<br>
+    Contact details are available in the Contact section.<br>
+    Check out my <a href="https://www.youtube.com/channel/UCsunkYku59IBKHwdb_pLzJw" target="_blank" class="hero-link"><strong>YouTube channel</strong></a>.
+
+  </p>
 </section>
 <section id="projects" class="projects">
-  <h2 class="section-title">My Projects & Ideas</h2>
+  <h2 class="section-title">My Projects</h2>
   <div class="card-grid">
     <div class="card">
       <h3>AverlinMz — AI Chatbot</h3>
-      <p>Developed a personalized chatbot to assist users with study goals, using advanced AI techniques for context awareness and emotional support.</p>
-      <p>A work in progress, with early users from family and close network.</p>
-      <p>Represents my passion for AI, human-computer interaction, and personalized technology.</p>
+      <p>Personalized chatbot for study assistance using AI for context and emotional support.</p>
       <a href="https://aylinmuzaffarli.github.io/averlinmz-site/" target="_blank">Project Link</a>
     </div>
-<div class="card">
-  <h3>Answer Checker — Personal Tool</h3>
-  <p>A simple tool I created for myself to mark answers purely correct or wrong while practicing tests. Helps prevent memorization of correct answers when I make mistakes.</p>
-  <p>Fully functional prototype, AI-generated code, designed for personal use but accessible for anyone who wants to try.</p>
-  <a href="https://aylinmuzaffarli.github.io/answer-checker/" target="_blank">Try the Tool</a>
-</div>
-
-<div class="card">
-  <h3>AI Learning Map — Beginner-Friendly Guide</h3>
-  <p>I created a compact, hands-on AI Learning Map to help beginners navigate AI without feeling overwhelmed. It includes tasks, key takeaways, and curated resources that helped me understand AI quickly.</p>
-  <p>Designed for students and self-learners who want a clear roadmap into AI with practical exercises.</p>
-  <a href="https://www.aylinmuzaffarli.com/ai-learning-map/" target="_blank">View the Map</a>
-  <p><a href="https://youtube.com/shorts/hctvH2uq6j0?si=TM6EzGTIC2Hr5q8v" target="_blank"><strong>Quick Peek Video</strong></a></p>
-</div>
-
+    <div class="card">
+      <h3>Answer Checker — Personal Tool</h3>
+      <p>Tool to mark test answers correct or wrong, preventing memorization during practice.</p>
+      <a href="https://aylinmuzaffarli.github.io/answer-checker/" target="_blank">Try the Tool</a>
+    </div>
+    <div class="card">
+      <h3>AI Learning Map — Beginner-Friendly Guide</h3>
+      <p>Compact roadmap with tasks and resources for quick AI learning.</p>
+      <a href="https://www.aylinmuzaffarli.com/ai-learning-map/" target="_blank">View the Map</a>
+    </div>
     <div class="card">
       <h3>Atomaroid</h3>
-      <p>An intelligent platform for physics olympiad preparation, offering problems, articles, and recommendations.</p>
-      <p>Provides quality study materials to Russian-speaking students in Azerbaijan.</p>
+      <p>Platform for physics Olympiad preparation with problems and recommendations for Russian-speaking students.</p>
       <a href="https://aylinmuzaffarli.github.io/Atomaroid/" target="_blank">Project Link</a>
     </div>
     <div class="card">
       <h3>CS50 at 14</h3>
-      <p>A personal milestone project showcasing my journey through Harvard’s CS50 course at just 14 years old.</p>
-      <p>Reflects a deep dive into computer science fundamentals, culminating in a self-built game and a thoughtfully documented learning journal.</p>
+      <p>Completion of Harvard’s CS50 course, including a self-built game and learning journal.</p>
       <a href="https://aylinmuzaffarli.github.io/cs50-at-14/" target="_blank">Project Link</a>
     </div>
     <div class="card">
-  <h3>System One — Published Book 📖</h3>
-  <p>Published my book <em>System One</em> on Amazon, exploring how people follow cognitive patterns and how awareness can improve thinking.</p>
-  <p>Available formats:</p>
-  <ul>
-    <li><a href="https://www.amazon.com/dp/B0FL7QVBFM" target="_blank">Kindle eBook</a></li>
-    <li><a href="https://www.amazon.com/dp/B0FLD454M8" target="_blank">Paperback</a></li>
-  </ul>
-  <p>Free Extract:</p>
-  <a href="https://drive.google.com/file/d/1C2J6kYRfKeWcWTUU5QdA10KkWbfgbsF2/view?usp=drive_link" target="_blank">Download Free Extract</a>
-</div>
-
+      <h3>System One — Published Book</h3>
+      <p>Book on Amazon exploring cognitive patterns and improved thinking awareness.</p>
+      <ul>
+  <li><a href="https://www.amazon.com/dp/B0FL7QVBFM" target="_blank">Kindle eBook</a></li>
+  <li><a href="https://www.amazon.com/dp/B0FLD454M8" target="_blank">Paperback</a></li>
+</ul>
+      <p class="free-extract">Free Extract:</p>
+      <a href="https://drive.google.com/file/d/1C2J6kYRfKeWcWTUU5QdA10KkWbfgbsF2/view?usp=drive_link" target="_blank">Download Free Extract</a>
+    </div>
     <div class="card">
       <h3>Understanding AI — How Machines Think vs Humans</h3>
-      <p>Discover how AI learns, makes decisions, and differs from human thinking, with real examples from my chatbot, AverlinMz.</p>
+      <p>Guide explaining AI decision-making with examples from my chatbot.</p>
       <a href="https://docs.google.com/document/d/1pzatz5bj6Ny-Hpx4EkdSN_vyG1kFElO6Ibc3knIH2Gc/preview" target="_blank">Read the Guide</a>
     </div>
   </div>
 </section>
-
-<section id="info">
-  <h2 class="section-title">About Me</h2>
-  <div class="info-section">
-    <h3>Profile</h3>
-    <p>I am a passionate and determined student from Azerbaijan, driven by curiosity and an insatiable desire to explore the boundaries between AI, robotics, and physics. Currently in 9th grade, I balance a rigorous state curriculum with self-directed projects and preparations for national Olympiads. I seek not only academic achievement but also real-world impact — to build innovative technologies and ideas that challenge the status quo.</p>
-    <p>I approach learning and creating with a mindset that blends relentless perseverance with a vision for transformative change. My goal is to contribute to groundbreaking advancements and inspire others through projects that embody creativity, depth, and social value.</p>
-  </div>
-  <div class="info-section">
-    <h3>Extracurricular Activities & Goals</h3>
-    <ul>
-      <li>Actively preparing for the Azerbaijani Republican Physics Olympiad (RFO) with aspirations to participate in the International Physics Olympiad (IPhO)</li>
-      <li>Committed to balancing academic rigor with creative projects to maintain passion and avoid burnout</li>
-      <li>Seeking opportunities for international mentorship, collaboration, and growth beyond traditional schooling</li>
-    </ul>
-  </div>
-</section>
 <section id="contact">
   <h2 class="section-title">Contact</h2>
-  <p>Connect with me through my social media or email:</p>
-  <div class="contact-grid">
-    <div class="contact-card">
-      <a href="https://www.facebook.com/profile.php?id=61573375073463" target="_blank">Facebook</a>
-    </div>
-    <div class="contact-card">
-      <a href="https://www.instagram.com/aylin.muzaffarli/" target="_blank">Instagram</a>
-    </div>
-    <div class="contact-card">
-      <a href="https://www.linkedin.com/in/aylin-muzaffarli-161261370/" target="_blank">LinkedIn</a>
-    </div>
-    <div class="contact-card">
-      <a href="mailto:muzaffaraylin@gmail.com">muzaffaraylin@gmail.com</a>
-    </div>
+  <div class="contact-block">
+    <p><a href="mailto:muzaffaraylin@gmail.com">muzaffaraylin.com</a></p>
   </div>
-  <p>I welcome connections, mentorship, and collaboration. Feel free to get in touch!</p>
 </section>
 <footer>
   © 2025 Aylin Muzaffarli — All Rights Reserved
 </footer>
 <script>
-// Scroll-based section background effect
-window.addEventListener('scroll', () => {
-  document.querySelectorAll('section').forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
-      section.classList.add('scrolled');
-    } else {
-      section.classList.remove('scrolled');
-    }
-  });
-});
 // Reveal on scroll for cards and titles
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -511,7 +391,7 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.15 });
-document.querySelectorAll('.card, .section-title, .contact-card').forEach(el => observer.observe(el));
+document.querySelectorAll('.card, .section-title').forEach(el => observer.observe(el));
 // Highlight active nav link
 const navObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
