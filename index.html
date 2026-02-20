@@ -331,10 +331,11 @@ nav li { list-style: none; }
 </section>
 
 <footer>
-  © 2025 Aylin Muzaffarli — All Rights Reserved
+  © 2025–<span id="year"></span> Aylin Muzaffarli — All Rights Reserved
 </footer>
 
 <script>
+document.getElementById('year').textContent = new Date().getFullYear();
 // --- Reveal cards and section titles ---
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
