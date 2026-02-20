@@ -9,32 +9,28 @@
 <title>Aylin Muzaffarli</title>
 <link rel="icon" type="image/webp" href="https://i.imgur.com/MJRIyz3.png">
 <link rel="canonical" href="https://www.aylinmuzaffarli.com/" />
-<!-- Open Graph / Social Media -->
 <meta property="og:title" content="Aylin Muzaffarli Portfolio">
 <meta property="og:description" content="Portfolio of Aylin Muzaffarli, showcasing projects in AI, programming, and more.">
 <meta property="og:image" content="https://i.imgur.com/DCU5epC_d.webp">
 <meta property="og:url" content="https://www.aylinmuzaffarli.com/">
 <meta property="og:type" content="website">
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aylin Muzaffarli Portfolio">
 <meta name="twitter:description" content="Portfolio of Aylin Muzaffarli, showcasing projects in AI, programming, and more.">
 <meta name="twitter:image" content="https://i.imgur.com/DCU5epC_d.webp">
-<!-- Theme color for mobile browsers -->
 <meta name="theme-color" content="#0A0F1A">
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=stylesheet" />
 <style>
 :root {
-  --primary-navy: #FFFFFF;           /* background white */
-  --secondary-charcoal: #F5F5F5;    /* light gray for cards/sections */
-  --glass-slate: rgba(245, 245, 245, 0.45);  /* translucent card effect */
-  --accent-violet: #CCCCCC;          /* optional borders/highlights */
-  --text-primary: #000000;           /* main text black */
-  --text-secondary: #555555;         /* secondary text gray */
-  --border-steel: #CCCCCC;           /* lines and borders light gray */
-  --shadow-subtle: rgba(0,0,0,0.05); /* subtle shadows on white */
-}}
+  --primary-navy: #FFFFFF;
+  --secondary-charcoal: #F5F5F5;
+  --glass-slate: rgba(245, 245, 245, 0.45);
+  --accent-violet: #CCCCCC;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --border-steel: #CCCCCC;
+  --shadow-subtle: rgba(0,0,0,0.05);
+}
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'Inter', sans-serif;
@@ -48,10 +44,7 @@ body {
   text-decoration: none;
   transition: color 0.25s ease;
 }
-
-.hero-link:hover {
-  color: var(--text-primary);
-}
+.hero-link:hover { color: var(--text-primary); }
 
 /* NAV */
 nav {
@@ -62,249 +55,109 @@ nav {
   border-bottom: 1px solid var(--border-steel);
   backdrop-filter: blur(10px);
 }
-nav .logo {
-  font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em;
-}
-nav ul {
-  list-style: none; display: flex; gap: 2.5rem;
-}
+nav .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em; }
+nav ul { list-style: none; display: flex; gap: 2.5rem; }
 nav a {
   text-decoration: none; color: var(--text-primary); font-weight: 600;
   transition: opacity 0.25s cubic-bezier(0.25,0.1,0.25,1);
   padding: 0.5rem 0;
 }
-nav a:hover {
-  opacity: 0.7;
-}
-nav a.active {
-  opacity: 1;
-  border-bottom: 1px solid var(--border-steel);
-}
+nav a:hover { opacity: 0.7; }
+nav a.active { opacity: 1; border-bottom: 1px solid var(--border-steel); }
+
 /* HERO */
 .hero {
   display: flex; flex-direction: column; justify-content: center; align-items: center;
-  text-align: center; min-height: 100vh;
-  background: var(--primary-navy);
-  padding: 2rem;
+  text-align: center; min-height: 100vh; background: var(--primary-navy); padding: 2rem;
 }
 .hero h1 {
   font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; letter-spacing: 0.02em;
-  color: var(--text-primary);
-  opacity: 0;
-  animation: slowFade 3s ease-out forwards;
+  opacity: 0; animation: slowFade 3s ease-out forwards;
 }
-.hero p {
-  font-size: 1.5rem; max-width: 900px; color: var(--text-secondary); margin-top: 1.5rem;
-  font-weight: 400; letter-spacing: 0.01em; line-height: 1.6;
-  opacity: 0;
-  animation: slowFade 3s ease-out 0.5s forwards;
-}
-/* Animations */
-@keyframes slowFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes hang {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-3px) rotate(0.5deg); }
-  100% { transform: translateY(-2px) rotate(0deg); }
-}
-/* SECTIONS */
-section {
-  padding: 10rem 0;
-  width: 100%;
-  position: relative;
-}
-/* PROJECTS */
-.projects {
-  background: var(--primary-navy);
-}
-/* CARD GRID */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px,1fr));
-  gap: 2.5rem; width: 100%; padding: 0 2rem;
+  gap: 2.5rem;
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
-/* MATTE GLASS CARD */
+
 .card {
-  height: 320px; display: flex; flex-direction: column;
-  justify-content: center; align-items: center; padding: 2rem;
-  font-size: 1.1rem; font-weight: 600; text-align: center;
-  color: var(--text-primary); cursor: pointer; overflow: hidden;
-  background: var(--glass-slate);
-  border: 1px solid var(--border-steel);
-  border-radius: 24px;
-  box-shadow: 0 4px 16px var(--shadow-subtle);
-  transform: translateY(0);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
-}
-.card.show {
-  opacity: 1;
-}
-.card:hover {
-  transform: translateY(-2px);
-  animation: hang 0.6s cubic-bezier(0.25,0.1,0.25,1) forwards;
-  box-shadow: 0 8px 24px var(--shadow-subtle);
-}
-.card h3 {
-  font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-primary);
-}
-.card p {
-  font-size: 1rem; margin-bottom: 1.5rem; font-weight: 400; color: var(--text-secondary);
-}
-.card ul {
-  list-style: none; padding: 0; margin: 0.5rem 0;
-}
-.card ul li {
-  margin-bottom: 0.25rem;
-}
-.card a {
-  color: var(--text-secondary); text-decoration: none; font-size: 1rem;
-}
-.card a:hover {
-  color: var(--text-primary);
-}
-.card .free-extract {
-  margin-top: 0.5rem; font-size: 0.95rem;
-}
-/* TITLES */
-.section-title {
-  font-size: 3.5rem; font-weight: 700; text-align: center;
-  margin-bottom: 4rem; letter-spacing: 0.02em; color: var(--text-primary);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
-}
-.section-title.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* CONTACT */
-#contact {
-  background: var(--primary-navy);
-  padding: 6rem 0 4rem;
-}
-#contact p {
-  font-size: 1.4rem; max-width: 900px; margin: 0 auto 3rem; color: var(--text-secondary);
-  font-weight: 400; letter-spacing: 0.01em; line-height: 1.5; text-align: center;
-}
-#contact a {
-  color: var(--text-secondary); text-decoration: none; transition: color 0.25s ease;
-}
-#contact a:hover {
-  color: var(--text-primary);
-}
-.contact-block {
-  max-width: 600px;
-  margin: 0 auto;
-  height: 200px;
+  height: 320px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+  text-align: center;
+  font-weight: 600;
   background: var(--glass-slate);
   border: 1px solid var(--border-steel);
   border-radius: 24px;
   box-shadow: 0 4px 16px var(--shadow-subtle);
-  padding: 0;
+  transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
+  opacity: 0;  /* for reveal animation */
 }
-.contact-block p {
-  margin: 0;
-  font-size: 1.3rem;
-  font-weight: 500;
-  text-align: center;
-  transform: translateY(20px);
+.card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
+.card p { font-size: 1rem; margin-bottom: 1.5rem; font-weight: 400; color: var(--text-secondary); }
+.card a { color: var(--text-secondary); text-decoration: none; }
+.card a:hover { color: var(--text-primary); }
+.card.show { opacity: 1; }
+.card:hover { transform: translateY(-2px); }
+.hero p {
+  font-size: 1.5rem; max-width: 900px; color: var(--text-secondary); margin-top: 1.5rem;
+  font-weight: 400; line-height: 1.6; opacity: 0; animation: slowFade 3s ease-out 0.5s forwards;
 }
-.contact-block a {
-  display: block;
+
+/* Animations */
+@keyframes slowFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes hang { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-3px) rotate(0.5deg); } 100% { transform: translateY(-2px) rotate(0deg); } }
+
+/* SECTIONS */
+section { padding: 10rem 0; width: 100%; position: relative; }
+.section-title { font-size: 3.5rem; font-weight: 700; text-align: center; margin-bottom: 4rem; color: var(--text-primary); opacity:0; transform:translateY(20px); transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1); }
+.section-title.show { opacity:1; transform:translateY(0); }
+
+/* ARTICLES */
+.article-list { max-width:900px; margin:0 auto; height:auto; overflow-y:auto; padding:1rem; border:1px solid var(--border-steel); border-radius:16px; background: var(--glass-slate); }
+.article-item a {
+  display: block; padding:0.5rem 0; font-weight:600; color:#000; text-decoration:none; transition:color 0.25s ease;
 }
-/* Footer */
-footer {
-  text-align: center; padding: 3rem; font-size: 1rem;
-  background: var(--primary-navy); color: var(--text-secondary);
-  border-top: 1px solid var(--border-steel);
-}
+.article-item a:hover { color: var(--text-primary); text-decoration: underline; }
+
+/* CONTACT */
+#contact { background: var(--primary-navy); padding: 6rem 0 4rem; text-align:center; }
+.contact-block { max-width: 600px; margin:0 auto; height:200px; display:flex; justify-content:center; align-items:center; background: var(--glass-slate); border:1px solid var(--border-steel); border-radius:24px; box-shadow:0 4px 16px var(--shadow-subtle); }
+.contact-block p { margin:0; font-size:1.3rem; font-weight:500; transform:translateY(20px); }
+.contact-block a { display:block; color: var(--text-secondary); text-decoration:none; transition: color 0.25s ease; }
+.contact-block a:hover { color: var(--text-primary); }
+footer { text-align:center; padding:3rem; font-size:1rem; border-top:1px solid var(--border-steel); color: var(--text-secondary); }
+
 /* SHOW CLASS */
-.show { opacity: 1; transform: translateY(0); }
-/* Mobile-specific styles */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1.5rem;
-  }
-  nav .logo {
-    font-size: 1.3rem;
-  }
-  nav ul {
-    gap: 1.5rem;
-  }
-  nav a {
-    font-size: 0.95rem;
-  }
-  .hero {
-    min-height: 80vh;
-    padding: 1rem;
-  }
-  .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 4rem);
-  }
-  .hero p {
-    font-size: 1.2rem;
-    max-width: 90%;
-  }
-  section {
-    padding: 5rem 1rem;
-  }
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1rem;
-    max-width: none;
-  }
-  .card {
-    height: auto;
-    min-height: 280px;
-    padding: 1.5rem;
-    font-size: 1rem;
-    border-radius: 20px;
-  }
-  .card h3 {
-    font-size: 1.2rem;
-  }
-  .card p {
-    font-size: 0.95rem;
-  }
-  .card a {
-    font-size: 0.95rem;
-  }
-  .card ul li {
-    margin-bottom: 0.2rem;
-  }
-  .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-  }
-  #contact p {
-    font-size: 1.2rem;
-    max-width: 95%;
-  }
-  .contact-block {
-    margin: 0 1rem;
-    border-radius: 20px;
-    height: 150px;
-    padding: 0;
-  }
-  .contact-block p {
-    font-size: 1.1rem;
-    transform: translateY(15px);
-  }
-  footer {
-    font-size: 0.9rem;
-    padding: 2rem 1rem;
-  }
+.show { opacity:1; transform:translateY(0); }
+
+/* MOBILE */
+@media(max-width:768px){
+  nav { flex-direction:column; padding:1rem; gap:1.5rem; }
+  nav .logo { font-size:1.3rem; }
+  nav ul { gap:1rem; }
+  nav a { font-size:0.95rem; }
+  .hero { min-height:80vh; padding:1rem; }
+  .hero h1 { font-size: clamp(2.5rem,7vw,4rem); }
+  .hero p { font-size:1.2rem; max-width:90%; }
+  section { padding:5rem 1rem; }
+  .article-list { padding:0.5rem; }
+  .article-item a { font-size:1rem; padding:0.5rem 0; }
+  #contact p { font-size:1.1rem; transform:translateY(15px); }
+  .contact-block { height:150px; border-radius:20px; margin:0 1rem; }
+  footer { font-size:0.9rem; padding:2rem 1rem; }
+.card-grid { grid-template-columns: 1fr; gap: 2rem; padding: 0 1rem; }
+  .card { height: auto; min-height: 280px; padding: 1.5rem; border-radius: 20px; }
+  .card h3 { font-size: 1.2rem; }
+  .card p { font-size: 0.95rem; }
+  .card a { font-size: 0.95rem; }
 }
 </style>
 </head>
@@ -313,11 +166,13 @@ footer {
   <div class="logo">Aylin</div>
   <ul>
     <li><a href="#home" data-section="home">Home</a></li>
-<li><a href="#updates" data-section="updates">Updates</a></li>
+    <li><a href="#updates" data-section="updates">Updates</a></li>
+    <li><a href="#articles" data-section="articles">Articles</a></li>
     <li><a href="#projects" data-section="projects">Projects</a></li>
     <li><a href="#contact" data-section="contact">Contact</a></li>
   </ul>
 </nav>
+
 <section id="home" class="hero">
   <h1>Aylin Muzaffarli</h1>
   <p>
@@ -325,16 +180,15 @@ footer {
     Projects are listed in the Projects section.<br>
     Contact details are available in the Contact section.<br>
     Check out my <a href="https://www.youtube.com/channel/UCsunkYku59IBKHwdb_pLzJw" target="_blank" class="hero-link"><strong>YouTube channel</strong></a>.
-
   </p>
 </section>
 
-<section id="updates" class="updates">
+<section id="updates">
   <h2 class="section-title">Stay Updated</h2>
   <p style="text-align:center; max-width:700px; margin:0 auto 2rem; color: var(--text-secondary); font-size:1.2rem;">
     Sign up to receive my latest project progress, insights, and discoveries directly in your inbox.
   </p>
- <p style="text-align:center; max-width:700px; margin:0 auto 2rem; color: var(--text-secondary); font-size:0.95rem;">
+  <p style="text-align:center; max-width:700px; margin:0 auto 2rem; color: var(--text-secondary); font-size:0.95rem;">
     Emails may appear in your Promotions or Spam folder — please check there if you don’t see them.
   </p>
   <div style="text-align:center;">
@@ -344,8 +198,18 @@ footer {
     </a>
   </div>
 </section>
-<section id="projects" class="projects">
-  <h2 class="section-title">My Projects</h2>
+
+<section id="articles">
+  <h2 class="section-title">Update Summaries</h2>
+  <div class="article-list">
+    <div class="article-item">
+      <a href="https://www.aylinmuzaffarli.com/updates-page" target="_blank">2026-02-20</a>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+   <h2 class="section-title">My Projects</h2>
   <div class="card-grid">
 <div class="card">
   <h3>Trajectory — Rocket Mission Calculator</h3>
@@ -405,41 +269,42 @@ footer {
       <a href="https://docs.google.com/document/d/1pzatz5bj6Ny-Hpx4EkdSN_vyG1kFElO6Ibc3knIH2Gc/preview" target="_blank">Read the Guide</a>
     </div>
   </div>
+
 </section>
+
 <section id="contact">
   <h2 class="section-title">Contact</h2>
   <div class="contact-block">
     <p><a href="mailto:muzaffaraylin@gmail.com">muzaffaraylin@gmail.com</a></p>
   </div>
 </section>
+
 <footer>
   © 2025 Aylin Muzaffarli — All Rights Reserved
 </footer>
+
 <script>
-// Reveal on scroll for cards and titles
+// Reveal on scroll
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('show');
-      observer.unobserve(e.target);
-    }
+    if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }
   });
-}, { threshold: 0.15 });
+},{threshold:0.15});
 document.querySelectorAll('.card, .section-title').forEach(el => observer.observe(el));
-// Highlight active nav link
-const navObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+document.querySelectorAll('.article-item').forEach(el => observer.observe(el));
+
+// Highlight nav link
+const navObserver = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      document.querySelectorAll('nav a').forEach(link=>link.classList.remove('active'));
       const sectionId = entry.target.id;
       const activeLink = document.querySelector(`nav a[data-section="${sectionId}"]`);
-      if (activeLink) {
-        activeLink.classList.add('active');
-      }
+      if(activeLink){ activeLink.classList.add('active'); }
     }
   });
-}, { threshold: 0.3 });
-document.querySelectorAll('section').forEach(section => navObserver.observe(section));
+},{threshold:0.3});
+document.querySelectorAll('section').forEach(section=>navObserver.observe(section));
 </script>
 </body>
 </html>
