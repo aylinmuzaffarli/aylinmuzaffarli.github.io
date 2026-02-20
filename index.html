@@ -7,7 +7,7 @@
 <meta name="author" content="Aylin Muzaffarli">
 <meta name="keywords" content="Aylin Muzaffarli, Portfolio, AI projects, CS50, Chatbot, Physics Olympiad, Robotics, AI Learning">
 <title>Aylin Muzaffarli</title>
-<link rel="icon" type="image/webp" href="https://i.imgur.com/DCU5epC_d.webp">
+<link rel="icon" type="image/webp" href="https://i.imgur.com/MJRIyz3.png">
 <link rel="canonical" href="https://www.aylinmuzaffarli.com/" />
 <!-- Open Graph / Social Media -->
 <meta property="og:title" content="Aylin Muzaffarli Portfolio">
@@ -26,15 +26,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=stylesheet" />
 <style>
 :root {
-  --primary-navy: #0A0F1A;
-  --secondary-charcoal: #111821;
-  --glass-slate: rgba(26, 35, 48, 0.45);
-  --accent-violet: #3B4A78;
-  --text-primary: #FFFFFF;
-  --text-secondary: #A1A1AA;
-  --border-steel: #4B5563;
-  --shadow-subtle: rgba(0, 0, 0, 0.20);
-}
+  --primary-navy: #FFFFFF;           /* background white */
+  --secondary-charcoal: #F5F5F5;    /* light gray for cards/sections */
+  --glass-slate: rgba(245, 245, 245, 0.45);  /* translucent card effect */
+  --accent-violet: #CCCCCC;          /* optional borders/highlights */
+  --text-primary: #000000;           /* main text black */
+  --text-secondary: #555555;         /* secondary text gray */
+  --border-steel: #CCCCCC;           /* lines and borders light gray */
+  --shadow-subtle: rgba(0,0,0,0.05); /* subtle shadows on white */
+}}
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'Inter', sans-serif;
@@ -313,6 +313,7 @@ footer {
   <div class="logo">Aylin</div>
   <ul>
     <li><a href="#home" data-section="home">Home</a></li>
+<li><a href="#updates" data-section="updates">Updates</a></li>
     <li><a href="#projects" data-section="projects">Projects</a></li>
     <li><a href="#contact" data-section="contact">Contact</a></li>
   </ul>
@@ -327,9 +328,27 @@ footer {
 
   </p>
 </section>
+
+<section id="updates" class="updates">
+  <h2 class="section-title">Stay Updated</h2>
+  <p style="text-align:center; max-width:700px; margin:0 auto 2rem; color: var(--text-secondary); font-size:1.2rem;">
+    Sign up to receive my latest project progress, insights, and discoveries directly in your inbox. No spam, just concise updates.
+  </p>
+  <div style="text-align:center;">
+    <a href="https://preview.mailerlite.io/forms/2128887/179921214406395050/share" target="_blank" 
+       style="display:inline-block; padding:0.75rem 1.5rem; background: var(--accent-violet); color:#000; font-weight:600; border-radius:12px; text-decoration:none; transition:opacity 0.25s ease;">
+      Subscribe Now
+    </a>
+  </div>
+</section>
 <section id="projects" class="projects">
   <h2 class="section-title">My Projects</h2>
   <div class="card-grid">
+<div class="card">
+  <h3>Trajectory — Rocket Mission Calculator</h3>
+  <p>Trajectory lets you calculate rocket missions with real physics. Explore propulsion, Δv, and acceleration with easy-to-use tools and references.</p>
+  <a href="https://www.aylinmuzaffarli.com/Trajectory/" target="_blank">Visit Trajectory</a>
+</div>
 <div class="card">
   <h3>Productivity Graph – Personal Task Visualization Tool</h3>
   <p>A simple tool to track and visualize your daily goal-aligned tasks.</p>
