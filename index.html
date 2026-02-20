@@ -77,10 +77,20 @@ nav {
 nav .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em; }
 nav ul { list-style: none; display: flex; gap: 2.5rem; }
 nav a {
-  text-decoration: none; color: var(--text-primary); font-weight: 600;
+  text-decoration: none; 
+  color: var(--text-primary); 
+  font-weight: 600;
   transition: opacity 0.25s cubic-bezier(0.25,0.1,0.25,1);
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.25rem; /* keeps space for underline */
+  border-bottom: 2px solid transparent; /* reserves space for active underline */
 }
+
+nav a.active {
+  opacity: 1;
+  border-bottom: 2px solid var(--border-steel); /* visible underline for active link */
+}
+
+
 nav a:hover { opacity: 0.7; }
 nav a.active { opacity: 1; border-bottom: 1px solid var(--border-steel); }
 
@@ -159,10 +169,23 @@ footer { text-align:center; padding:3rem; font-size:1rem; border-top:1px solid v
 
 /* MOBILE */
 @media(max-width:768px){
-  nav { flex-direction:column; padding:1rem; gap:1.5rem; }
+ nav { 
+    flex-direction: column; 
+    padding:1rem; 
+    gap:1.5rem; 
+    align-items: center;   /* centers everything */
+  }
   nav .logo { font-size:1.3rem; }
-  nav ul { gap:1rem; }
-  nav a { font-size:0.95rem; }
+   nav ul { 
+    display: flex; 
+    justify-content: center;  /* center links horizontally */
+    gap: 1rem; 
+    flex-wrap: wrap;          /* optional: allow wrapping if needed */
+    padding: 0; 
+    margin: 0;
+  }
+nav li { list-style: none; }  
+  nav a { font-size: 0.95rem; padding: 0.5rem 0; }
   .hero { min-height:80vh; padding:1rem; }
   .hero h1 { font-size: clamp(2.5rem,7vw,4rem); }
   .hero p { font-size:1.2rem; max-width:90%; }
@@ -187,6 +210,7 @@ footer { text-align:center; padding:3rem; font-size:1rem; border-top:1px solid v
     align-items:center;
   }
 }
+
 </style>
 </head>
 <body>
@@ -311,27 +335,47 @@ footer { text-align:center; padding:3rem; font-size:1rem; border-top:1px solid v
 </footer>
 
 <script>
-// Reveal on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }
-  });
-},{threshold:0.15});
-document.querySelectorAll('.card, .section-title').forEach(el => observer.observe(el));
-document.querySelectorAll('.article-item').forEach(el => observer.observe(el));
-
-// Highlight nav link
-const navObserver = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
+// --- Reveal cards and section titles ---
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
     if(entry.isIntersecting){
-      document.querySelectorAll('nav a').forEach(link=>link.classList.remove('active'));
-      const sectionId = entry.target.id;
-      const activeLink = document.querySelector(`nav a[data-section="${sectionId}"]`);
-      if(activeLink){ activeLink.classList.add('active'); }
+      entry.target.classList.add('show');
+      revealObserver.unobserve(entry.target);
     }
   });
-},{threshold:0.3});
-document.querySelectorAll('section').forEach(section=>navObserver.observe(section));
-</script>
-</body>
+}, {threshold: 0.15});
+
+document.querySelectorAll('.card, .section-title, .article-item').forEach(el => revealObserver.observe(el));
+
+// --- Nav underline highlighting ---
+const navLinks = document.querySelectorAll('nav a');
+
+function setActive(id){
+  navLinks.forEach(link => link.classList.toggle('active', link.dataset.section === id));
+}
+
+// Click updates underline immediately
+navLinks.forEach(link => {
+  link.addEventListener('click', () => setActive(link.dataset.section));
+});
+
+// Hashchange updates underline
+window.addEventListener('hashchange', () => {
+  setActive(location.hash.replace('#','') || 'home');
+});
+
+// Scroll-based updates (simple)
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  let scrollPos = window.scrollY + window.innerHeight/2;
+  sections.forEach(section => {
+    if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight){
+      setActive(section.id);
+    }
+  });
+});
+
+// Initial active link
+setActive(location.hash.replace('#','') || 'home');
+</script></body>
 </html>
