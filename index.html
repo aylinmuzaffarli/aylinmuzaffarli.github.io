@@ -9,302 +9,144 @@
 <title>Aylin Muzaffarli</title>
 <link rel="icon" type="image/webp" href="https://i.imgur.com/DCU5epC_d.webp">
 <link rel="canonical" href="https://www.aylinmuzaffarli.com/" />
+
 <!-- Open Graph / Social Media -->
 <meta property="og:title" content="Aylin Muzaffarli Portfolio">
 <meta property="og:description" content="Portfolio of Aylin Muzaffarli, showcasing projects in AI, programming, and more.">
 <meta property="og:image" content="https://i.imgur.com/DCU5epC_d.webp">
 <meta property="og:url" content="https://www.aylinmuzaffarli.com/">
 <meta property="og:type" content="website">
+
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aylin Muzaffarli Portfolio">
 <meta name="twitter:description" content="Portfolio of Aylin Muzaffarli, showcasing projects in AI, programming, and more.">
 <meta name="twitter:image" content="https://i.imgur.com/DCU5epC_d.webp">
+
 <!-- Theme color for mobile browsers -->
-<meta name="theme-color" content="#0A0F1A">
+<meta name="theme-color" content="#FFFFFF">
+
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=stylesheet" />
+
 <style>
 :root {
-  --primary-navy: #0A0F1A;
-  --secondary-charcoal: #111821;
-  --glass-slate: rgba(26, 35, 48, 0.45);
-  --accent-violet: #3B4A78;
-  --text-primary: #FFFFFF;
-  --text-secondary: #A1A1AA;
-  --border-steel: #4B5563;
-  --shadow-subtle: rgba(0, 0, 0, 0.20);
+  --bg-white: #FFFFFF;
+  --text-black: #000000;
+  --text-gray: #A1A1AA;
+  --border-gray: #D1D5DB;
+  --card-glass: rgba(240,240,240,0.6);
+  --shadow-subtle: rgba(0,0,0,0.15);
 }
+
 * { margin:0; padding:0; box-sizing:border-box; }
+
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--primary-navy);
-  color: var(--text-primary);
+  background: var(--bg-white);
+  color: var(--text-black);
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-.hero-link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 0.25s ease;
-}
 
-.hero-link:hover {
-  color: var(--text-primary);
-}
+a { text-decoration: none; color: var(--text-gray); transition: color 0.25s ease; }
+a:hover { color: var(--text-black); }
 
 /* NAV */
 nav {
-  position: sticky; top: 0; z-index: 10;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1.5rem 3rem;
-  background: var(--glass-slate);
-  border-bottom: 1px solid var(--border-steel);
+  position: sticky; top:0; z-index:10;
+  display:flex; justify-content: space-between; align-items:center;
+  padding:1.5rem 3rem;
+  background: var(--card-glass);
+  border-bottom: 1px solid var(--border-gray);
   backdrop-filter: blur(10px);
 }
-nav .logo {
-  font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em;
-}
-nav ul {
-  list-style: none; display: flex; gap: 2.5rem;
-}
-nav a {
-  text-decoration: none; color: var(--text-primary); font-weight: 600;
-  transition: opacity 0.25s cubic-bezier(0.25,0.1,0.25,1);
-  padding: 0.5rem 0;
-}
-nav a:hover {
-  opacity: 0.7;
-}
-nav a.active {
-  opacity: 1;
-  border-bottom: 1px solid var(--border-steel);
-}
+
+nav .logo { font-size:1.5rem; font-weight:700; color: var(--text-black); letter-spacing:0.05em; }
+
+nav ul { list-style:none; display:flex; gap:2.5rem; }
+nav a { color: var(--text-black); font-weight:600; padding:0.5rem 0; }
+nav a:hover { opacity:0.7; }
+nav a.active { opacity:1; border-bottom:1px solid var(--border-gray); }
+
 /* HERO */
 .hero {
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  text-align: center; min-height: 100vh;
-  background: var(--primary-navy);
-  padding: 2rem;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; min-height:100vh;
+  background: var(--bg-white);
+  padding:2rem;
 }
-.hero h1 {
-  font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; letter-spacing: 0.02em;
-  color: var(--text-primary);
-  opacity: 0;
-  animation: slowFade 3s ease-out forwards;
-}
-.hero p {
-  font-size: 1.5rem; max-width: 900px; color: var(--text-secondary); margin-top: 1.5rem;
-  font-weight: 400; letter-spacing: 0.01em; line-height: 1.6;
-  opacity: 0;
-  animation: slowFade 3s ease-out 0.5s forwards;
-}
-/* Animations */
-@keyframes slowFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes hang {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-3px) rotate(0.5deg); }
-  100% { transform: translateY(-2px) rotate(0deg); }
-}
+.hero h1 { font-size: clamp(3.5rem, 9vw, 7rem); font-weight:700; color: var(--text-black); }
+.hero p { font-size:1.5rem; max-width:900px; color: var(--text-gray); margin-top:1.5rem; line-height:1.6; }
+
 /* SECTIONS */
-section {
-  padding: 10rem 0;
-  width: 100%;
-  position: relative;
-}
-/* PROJECTS */
-.projects {
-  background: var(--primary-navy);
-}
+section { padding:10rem 0; width:100%; position:relative; }
+
 /* CARD GRID */
 .card-grid {
-  display: grid;
+  display:grid;
   grid-template-columns: repeat(auto-fit, minmax(380px,1fr));
-  gap: 2.5rem; width: 100%; padding: 0 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  gap:2.5rem; width:100%; padding:0 2rem; max-width:1400px; margin:0 auto;
 }
-/* MATTE GLASS CARD */
+
+/* CARD */
 .card {
-  height: 320px; display: flex; flex-direction: column;
-  justify-content: center; align-items: center; padding: 2rem;
-  font-size: 1.1rem; font-weight: 600; text-align: center;
-  color: var(--text-primary); cursor: pointer; overflow: hidden;
-  background: var(--glass-slate);
-  border: 1px solid var(--border-steel);
-  border-radius: 24px;
-  box-shadow: 0 4px 16px var(--shadow-subtle);
-  transform: translateY(0);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
+  height:320px; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:2rem;
+  font-size:1.1rem; font-weight:600; text-align:center;
+  color: var(--text-black); cursor:pointer; overflow:hidden;
+  background: var(--card-glass);
+  border:1px solid var(--border-gray);
+  border-radius:24px;
+  box-shadow:0 4px 16px var(--shadow-subtle);
+  transition: all 0.3s ease;
 }
-.card.show {
-  opacity: 1;
-}
-.card:hover {
-  transform: translateY(-2px);
-  animation: hang 0.6s cubic-bezier(0.25,0.1,0.25,1) forwards;
-  box-shadow: 0 8px 24px var(--shadow-subtle);
-}
-.card h3 {
-  font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-primary);
-}
-.card p {
-  font-size: 1rem; margin-bottom: 1.5rem; font-weight: 400; color: var(--text-secondary);
-}
-.card ul {
-  list-style: none; padding: 0; margin: 0.5rem 0;
-}
-.card ul li {
-  margin-bottom: 0.25rem;
-}
-.card a {
-  color: var(--text-secondary); text-decoration: none; font-size: 1rem;
-}
-.card a:hover {
-  color: var(--text-primary);
-}
-.card .free-extract {
-  margin-top: 0.5rem; font-size: 0.95rem;
-}
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--shadow-subtle); }
+.card h3 { font-size:1.3rem; margin-bottom:1rem; }
+.card p { font-size:1rem; margin-bottom:1.5rem; color: var(--text-gray); }
+.card a { color: var(--text-gray); }
+.card a:hover { color: var(--text-black); }
+.card .free-extract { margin-top:0.5rem; font-size:0.95rem; }
+
 /* TITLES */
 .section-title {
-  font-size: 3.5rem; font-weight: 700; text-align: center;
-  margin-bottom: 4rem; letter-spacing: 0.02em; color: var(--text-primary);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
+  font-size:3.5rem; font-weight:700; text-align:center; margin-bottom:4rem; letter-spacing:0.02em;
+  color: var(--text-black);
 }
-.section-title.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+
 /* CONTACT */
-#contact {
-  background: var(--primary-navy);
-  padding: 6rem 0 4rem;
-}
-#contact p {
-  font-size: 1.4rem; max-width: 900px; margin: 0 auto 3rem; color: var(--text-secondary);
-  font-weight: 400; letter-spacing: 0.01em; line-height: 1.5; text-align: center;
-}
-#contact a {
-  color: var(--text-secondary); text-decoration: none; transition: color 0.25s ease;
-}
-#contact a:hover {
-  color: var(--text-primary);
-}
-.contact-block {
-  max-width: 600px;
-  margin: 0 auto;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--glass-slate);
-  border: 1px solid var(--border-steel);
-  border-radius: 24px;
-  box-shadow: 0 4px 16px var(--shadow-subtle);
-  padding: 0;
-}
-.contact-block p {
-  margin: 0;
-  font-size: 1.3rem;
-  font-weight: 500;
-  text-align: center;
-  transform: translateY(20px);
-}
-.contact-block a {
-  display: block;
-}
+#contact { background: var(--bg-white); padding:6rem 0 4rem; }
+#contact p { font-size:1.4rem; max-width:900px; margin:0 auto 3rem; color: var(--text-gray); font-weight:400; text-align:center; }
+.contact-block { max-width:600px; margin:0 auto; height:200px; display:flex; justify-content:center; align-items:center;
+background: var(--card-glass); border:1px solid var(--border-gray); border-radius:24px; box-shadow:0 4px 16px var(--shadow-subtle); }
+.contact-block p { margin:0; font-size:1.3rem; font-weight:500; text-align:center; }
+.contact-block a { color: var(--text-gray); }
+.contact-block a:hover { color: var(--text-black); }
+
 /* Footer */
-footer {
-  text-align: center; padding: 3rem; font-size: 1rem;
-  background: var(--primary-navy); color: var(--text-secondary);
-  border-top: 1px solid var(--border-steel);
-}
+footer { text-align:center; padding:3rem; font-size:1rem; color: var(--text-gray); border-top:1px solid var(--border-gray); }
+
 /* SHOW CLASS */
-.show { opacity: 1; transform: translateY(0); }
-/* Mobile-specific styles */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1.5rem;
-  }
-  nav .logo {
-    font-size: 1.3rem;
-  }
-  nav ul {
-    gap: 1.5rem;
-  }
-  nav a {
-    font-size: 0.95rem;
-  }
-  .hero {
-    min-height: 80vh;
-    padding: 1rem;
-  }
-  .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 4rem);
-  }
-  .hero p {
-    font-size: 1.2rem;
-    max-width: 90%;
-  }
-  section {
-    padding: 5rem 1rem;
-  }
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1rem;
-    max-width: none;
-  }
-  .card {
-    height: auto;
-    min-height: 280px;
-    padding: 1.5rem;
-    font-size: 1rem;
-    border-radius: 20px;
-  }
-  .card h3 {
-    font-size: 1.2rem;
-  }
-  .card p {
-    font-size: 0.95rem;
-  }
-  .card a {
-    font-size: 0.95rem;
-  }
-  .card ul li {
-    margin-bottom: 0.2rem;
-  }
-  .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-  }
-  #contact p {
-    font-size: 1.2rem;
-    max-width: 95%;
-  }
-  .contact-block {
-    margin: 0 1rem;
-    border-radius: 20px;
-    height: 150px;
-    padding: 0;
-  }
-  .contact-block p {
-    font-size: 1.1rem;
-    transform: translateY(15px);
-  }
-  footer {
-    font-size: 0.9rem;
-    padding: 2rem 1rem;
-  }
+.show { opacity:1; transform: translateY(0); }
+
+/* Mobile */
+@media (max-width:768px){
+  nav { flex-direction:column; padding:1rem; gap:1.5rem; }
+  nav .logo { font-size:1.3rem; }
+  nav ul { gap:1.5rem; }
+  nav a { font-size:0.95rem; }
+  .hero { min-height:80vh; padding:1rem; }
+  .hero h1 { font-size: clamp(2.5rem, 7vw, 4rem); }
+  .hero p { font-size:1.2rem; max-width:90%; }
+  section { padding:5rem 1rem; }
+  .card-grid { grid-template-columns:1fr; gap:2rem; padding:0 1rem; max-width:none; }
+  .card { min-height:280px; padding:1.5rem; font-size:1rem; border-radius:20px; }
+  .card h3 { font-size:1.2rem; }
+  .card p { font-size:0.95rem; }
+  .section-title { font-size:2.5rem; margin-bottom:3rem; }
+  #contact p { font-size:1.2rem; max-width:95%; }
+  .contact-block { margin:0 1rem; border-radius:20px; height:150px; }
+  .contact-block p { font-size:1.1rem; }
+  footer { font-size:0.9rem; padding:2rem 1rem; }
 }
 </style>
 </head>
@@ -313,20 +155,39 @@ footer {
   <div class="logo">Aylin</div>
   <ul>
     <li><a href="#home" data-section="home">Home</a></li>
+    <li><a href="#newsletter" data-section="newsletter">Newsletter</a></li>
     <li><a href="#projects" data-section="projects">Projects</a></li>
     <li><a href="#contact" data-section="contact">Contact</a></li>
   </ul>
 </nav>
+
 <section id="home" class="hero">
   <h1>Aylin Muzaffarli</h1>
   <p>
     Welcome. This space contains my work.<br>
     Projects are listed in the Projects section.<br>
     Contact details are available in the Contact section.<br>
-    Check out my <a href="https://www.youtube.com/channel/UCsunkYku59IBKHwdb_pLzJw" target="_blank" class="hero-link"><strong>YouTube channel</strong></a>.
-
+    Check out my <a href="https://www.youtube.com/channel/UCsunkYku59IBKHwdb_pLzJw" target="_blank"><strong>YouTube channel</strong></a>.
   </p>
 </section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <h2 class="section-title">Project Updates Newsletter</h2>
+  <p style="text-align:center; color: var(--text-gray); font-size:1.2rem; margin-bottom:2rem;">
+    Subscribe to get my latest project progress, discoveries, and updates straight to your inbox. No spam.
+  </p>
+  <div style="max-width:600px; margin:0 auto;">
+    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+    <form action="https://app.kit.com/forms/9110586/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9110586" data-uid="0cccdeb8ea" style="min-width:300px;">
+      <div class="formkit-field" style="margin-bottom:1rem;">
+        <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required type="email" style="width:100%; padding:12px; border-radius:4px; border:1px solid var(--border-gray); color: var(--text-black);">
+      </div>
+      <button class="formkit-submit" type="submit" style="width:100%; padding:12px; border-radius:4px; background: var(--text-black); color: var(--bg-white); font-weight:500; cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
+</section>
+
 <section id="projects" class="projects">
   <h2 class="section-title">My Projects</h2>
   <div class="card-grid">
@@ -381,8 +242,7 @@ footer {
       <h3>Understanding AI — How Machines Think vs Humans</h3>
       <p>Guide explaining AI decision-making with examples from my chatbot.</p>
       <a href="https://docs.google.com/document/d/1pzatz5bj6Ny-Hpx4EkdSN_vyG1kFElO6Ibc3knIH2Gc/preview" target="_blank">Read the Guide</a>
-    </div>
-  </div>
+    </div>  </div>
 </section>
 <section id="contact">
   <h2 class="section-title">Contact</h2>
@@ -390,33 +250,30 @@ footer {
     <p><a href="mailto:muzaffaraylin@gmail.com">muzaffaraylin@gmail.com</a></p>
   </div>
 </section>
+
 <footer>
   © 2025 Aylin Muzaffarli — All Rights Reserved
 </footer>
+
 <script>
-// Reveal on scroll for cards and titles
+// Reveal on scroll
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('show');
-      observer.unobserve(e.target);
-    }
+    if(e.isIntersecting) { e.target.classList.add('show'); }
   });
-}, { threshold: 0.15 });
+}, { threshold:0.15 });
 document.querySelectorAll('.card, .section-title').forEach(el => observer.observe(el));
-// Highlight active nav link
+
+// Active nav link
 const navObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
-      const sectionId = entry.target.id;
-      const activeLink = document.querySelector(`nav a[data-section="${sectionId}"]`);
-      if (activeLink) {
-        activeLink.classList.add('active');
-      }
+    if(entry.isIntersecting){
+      document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`nav a[data-section="${entry.target.id}"]`);
+      if(active) active.classList.add('active');
     }
   });
-}, { threshold: 0.3 });
+}, { threshold:0.3 });
 document.querySelectorAll('section').forEach(section => navObserver.observe(section));
 </script>
 </body>
