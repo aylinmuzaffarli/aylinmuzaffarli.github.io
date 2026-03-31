@@ -91,6 +91,26 @@ nav a.active {
 }
 
 
+.card-link {
+  text-decoration: none; /* removes underline */
+  color: inherit;        /* keeps text color */
+  display: block;        /* fills card space */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-link .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card-link p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+
 nav a:hover { opacity: 0.7; }
 nav a.active { opacity: 1; border-bottom: 1px solid var(--border-steel); }
 
@@ -253,12 +273,26 @@ nav li { list-style: none; }
 
 <section id="articles">
   <h2 class="section-title">Update Summaries</h2>
-  <div class="article-list">
-    <div class="article-item">
-      <a href="https://www.aylinmuzaffarli.com/updates-page" target="_blank">2026-02-20</a>
-    </div>
+  <div class="card-grid">
+
+    <a href="http://www.aylinmuzaffarli.com/my-first-circuit/" target="_blank" class="card-link">
+      <div class="card">
+        <h3>31.3.2026</h3>
+        <p>My first electronics project</p>
+      </div>
+    </a>
+
+    <a href="https://www.aylinmuzaffarli.com/updates-page" target="_blank" class="card-link">
+      <div class="card">
+        <h3>20.2.2026</h3>
+        <p>Previous update</p>
+      </div>
+    </a>
+
   </div>
-</section>
+</section> 
+
+
 
 <section id="projects">
    <h2 class="section-title">My Projects</h2>
