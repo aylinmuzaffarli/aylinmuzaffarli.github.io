@@ -19,18 +19,27 @@
 <meta name="twitter:description" content="Portfolio of Aylin Muzaffarli, showcasing projects in AI, programming, and more.">
 <meta name="twitter:image" content="https://i.imgur.com/DCU5epC_d.webp">
 <meta name="theme-color" content="#0A0F1A">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --primary-navy: #FFFFFF;
-  --secondary-charcoal: #F5F5F5;
-  --glass-slate: rgba(245, 245, 245, 0.45);
-  --accent-violet: #CCCCCC;
   --text-primary: #000000;
   --text-secondary: #555555;
-  --border-steel: #CCCCCC;
-  --shadow-subtle: rgba(0,0,0,0.05);
+  --accent-violet: #CCCCCC;
+  
+  /* GLASSMORPHISM SETTINGS */
+  --glass-white: rgba(255, 255, 255, 0.2); /* Transparent white */
+  --glass-blur: blur(20px);                /* Stronger blur */
+  --glass-border: rgba(0, 0, 0, 0.08);     /* Subtle outline */
+  --glass-radius: 35px;                    /* More rounded corners */
+  --shadow-elegant: 0 8px 32px rgba(0, 0, 0, 0.06); /* Softer, larger shadow */
+--nav-underline: var(--accent-violet);
+--border-steel: rgba(0, 0, 0, 0.1);
+--shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
+
+
+
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'Inter', sans-serif;
@@ -40,24 +49,78 @@ body {
   overflow-x: hidden;
 }
 
-.contact-block { 
-  max-width: 600px; 
-  margin:0 auto; 
-  height:200px; 
-  display:flex; 
-  justify-content:center; 
-  align-items:center; 
-  background: var(--glass-slate); 
-  border:1px solid var(--border-steel); 
-  border-radius:24px; 
-  box-shadow:0 4px 16px var(--shadow-subtle); 
+/* UPDATED CONTACT BLOCK */
+.contact-block {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem; /* Increased padding for a cleaner look */
+  align-items: stretch;
+  
+  /* Glassmorphism - matching your cards */
+  background: var(--glass-white);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: var(--shadow-elegant);
+  
+  /* Ensure it doesn't have a fixed height so the form can fit */
+  height: auto !important; 
 }
-.contact-block p { 
+
+/* Style the inputs to match the glass vibe */
+/* Style the inputs to match the glass vibe */
+#contact-form input, 
+#contact-form textarea {
+  /* This light grey background makes the box visible against the white page */
+  background: rgba(0, 0, 0, 0.03); 
+  
+  /* We use a solid hex or darker rgba for the border so it stands out */
+  border: 1px solid #cccccc; 
+  
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+#contact-form input:focus, 
+#contact-form textarea:focus {
+  outline: none;
+  /* Turns black when you click it to show it is active */
+  border-color: #000000; 
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* This ensures the placeholder text is visible but subtle */
+#contact-form ::placeholder {
+  color: #888888;
+}.contact-block p { 
   margin:0; 
   font-size:1.3rem; 
   font-weight:500; 
   /* remove this line */
 }
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100svh;
+  background: var(--primary-navy);
+  padding: 2rem 1.25rem;
+  scroll-margin-top: 100px; /* Crucial for the navbar links to land correctly */
+} 
+
+
 .hero-link {
   color: var(--text-secondary);
   text-decoration: none;
@@ -65,31 +128,134 @@ body {
 }
 .hero-link:hover { color: var(--text-primary); }
 
+.hero-text p:first-child {
+  margin-top: 1.5rem;
+}
+
 /* NAV */
 nav {
   position: sticky; top: 0; z-index: 10;
   display: flex; justify-content: space-between; align-items: center;
   padding: 1.5rem 3rem;
-  background: var(--glass-slate);
-  border-bottom: 1px solid var(--border-steel);
-  backdrop-filter: blur(10px);
+  background: var(--glass-white);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur); /* For Safari support */
+  border-bottom: 1px solid var(--glass-border);
 }
-nav .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em; }
 nav ul { list-style: none; display: flex; gap: 2.5rem; }
+/* Base Navigation Link Style */
 nav a {
   text-decoration: none; 
   color: var(--text-primary); 
   font-weight: 600;
-  transition: opacity 0.25s cubic-bezier(0.25,0.1,0.25,1);
-  padding: 0.5rem 0.25rem; /* keeps space for underline */
-  border-bottom: 2px solid transparent; /* reserves space for active underline */
+  transition: opacity 0.25s ease;
+  padding: 0.5rem 0;
+  position: relative; /* Required for the underline positioning */
 }
 
-nav a.active {
-  opacity: 1;
-  border-bottom: 2px solid var(--border-steel); /* visible underline for active link */
+/* The Underline (Hidden by default) */
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Position it slightly below the text */
+  left: 0;
+  width: 0;    /* Start with no width */
+  height: 2px; /* Thickness of the line */
+  background-color: var(--nav-underline);
+  transition: width 0.3s ease; /* This makes the line "grow" */
 }
 
+/* The Underline (Visible when active) */
+nav a.active::after {
+  width: 100%; /* Line grows to full width of the text */
+}
+
+/* Subtle hover effect for non-active links */
+nav a:hover {
+  opacity: 0.6;
+}
+
+.contact-note {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  text-align: center;
+}
+
+.social-section {
+  border-top: 1px solid rgba(204, 204, 204, 0.7);
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+}
+
+.social-title {
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  line-height: 1;
+
+  /* MATCHING PROJECT CARDS EXACTLY */
+  background: var(--glass-white);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px; /* Slightly smaller radius than large cards looks better for buttons */
+  box-shadow: var(--shadow-elegant);
+  
+  transition: all 0.3s ease;
+}
+
+
+
+.social-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex: 0 0 auto;
+  display: block;
+}
+
+.social-link span {
+  line-height: 1;
+}
+
+.social-link:hover {
+  /* Match the text color change */
+  color: var(--text-primary);
+  
+  /* Match the card's physical lift (-5px) */
+  transform: translateY(-5px);
+  
+  /* Match the card's glass highlight exactly (0.3 opacity) */
+  background: rgba(255, 255, 255, 0.3); 
+  
+  /* REMOVED: border-color change to keep it subtle like project cards */
+  
+  /* Match the card's shadow depth */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  
+  transition: all 0.3s ease;
+}
 
 .card-link {
   text-decoration: none; /* removes underline */
@@ -98,9 +264,12 @@ nav a.active {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-link .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+.contact-note {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
 }
 
 .card-link p {
@@ -112,13 +281,8 @@ nav a.active {
 
 
 nav a:hover { opacity: 0.7; }
-nav a.active { opacity: 1; border-bottom: 1px solid var(--border-steel); }
 
 /* HERO */
-.hero {
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  text-align: center; min-height: 100vh; background: var(--primary-navy); padding: 2rem;
-}
 .hero h1 {
   font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; letter-spacing: 0.02em;
   opacity: 0; animation: slowFade 3s ease-out forwards;
@@ -142,22 +306,71 @@ nav a.active { opacity: 1; border-bottom: 1px solid var(--border-steel); }
   padding: 2rem;
   text-align: center;
   font-weight: 600;
-  background: var(--glass-slate);
-  border: 1px solid var(--border-steel);
+    border: 1px solid var(--border-steel);
   border-radius: 24px;
   box-shadow: 0 4px 16px var(--shadow-subtle);
   transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
   opacity: 0;  /* for reveal animation */
+background: var(--glass-white);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  box-shadow: var(--shadow-elegant);
 }
 .card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
 .card p { font-size: 1rem; margin-bottom: 1.5rem; font-weight: 400; color: var(--text-secondary); }
 .card a { color: var(--text-secondary); text-decoration: none; }
 .card a:hover { color: var(--text-primary); }
 .card.show { opacity: 1; }
-.card:hover { transform: translateY(-2px); }
-.hero p {
-  font-size: 1.5rem; max-width: 900px; color: var(--text-secondary); margin-top: 1.5rem;
-  font-weight: 400; line-height: 1.6; opacity: 0; animation: slowFade 3s ease-out 0.5s forwards;
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.3); /* Slightly less transparent on hover */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+  transition: all 0.3s ease;
+}
+
+.hero h1 {
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  line-height: 1.05;
+  opacity: 0;
+  animation: slowFade 3s ease-out forwards;
+}
+
+.hero-text {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-text p {
+  margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  opacity: 0;
+  animation: slowFade 3s ease-out 0.5s forwards;
+}
+.status-chip {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+  line-height: 1;
 }
 
 /* Animations */
@@ -177,11 +390,6 @@ section { padding: 10rem 0; width: 100%; position: relative; scroll-margin-top: 
 .article-item a:hover { color: var(--text-primary); text-decoration: underline; }
 
 /* CONTACT */
-#contact { background: var(--primary-navy); padding: 6rem 0 4rem; text-align:center; }
-.contact-block { max-width: 600px; margin:0 auto; height:200px; display:flex; justify-content:center; align-items:center; background: var(--glass-slate); border:1px solid var(--border-steel); border-radius:24px; box-shadow:0 4px 16px var(--shadow-subtle); }
-.contact-block p { margin:0; font-size:1.3rem; font-weight:500;  }
-.contact-block a { display:block; color: var(--text-secondary); text-decoration:none; transition: color 0.25s ease; }
-.contact-block a:hover { color: var(--text-primary); }
 footer { text-align:center; padding:3rem; font-size:1rem; border-top:1px solid var(--border-steel); color: var(--text-secondary); }
 
 /* SHOW CLASS */
@@ -189,14 +397,30 @@ footer { text-align:center; padding:3rem; font-size:1rem; border-top:1px solid v
 
 /* MOBILE */
 @media(max-width:768px){
+.hero {
+  min-height: 100svh;
+  padding: 1.5rem 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 10vw, 4rem);
+}
+
+.hero-text {
+  max-width: 95%;
+  gap: 0.85rem;
+}
+
+.hero-text p {
+  font-size: 1.05rem;
+}
  nav { 
     flex-direction: column; 
     padding:1rem; 
     gap:1.5rem; 
     align-items: center;   /* centers everything */
   }
-  nav .logo { font-size:1.3rem; }
-   nav ul { 
+     nav ul { 
     display: flex; 
     justify-content: center;  /* center links horizontally */
     gap: 1rem; 
@@ -204,6 +428,14 @@ footer { text-align:center; padding:3rem; font-size:1rem; border-top:1px solid v
     padding: 0; 
     margin: 0;
   }
+.social-links {
+  gap: 0.6rem;
+}
+
+.social-link {
+  padding: 0.65rem 0.85rem;
+  font-size: 0.92rem;
+}
 nav li { list-style: none; }  
   nav a { font-size: 0.95rem; padding: 0.5rem 0; }
   .hero { min-height:80vh; padding:1rem; }
@@ -213,30 +445,20 @@ nav li { list-style: none; }
   .article-list { padding:0.5rem; }
   .article-item a { font-size:1rem; padding:0.5rem 0; }
   
-  .contact-block { height:150px; border-radius:20px; margin:0 1rem; }
-  footer { font-size:0.9rem; padding:2rem 1rem; }
+   footer { font-size:0.9rem; padding:2rem 1rem; }
 .card-grid { grid-template-columns: 1fr; gap: 2rem; padding: 0 1rem; }
   .card { height: auto; min-height: 280px; padding: 1.5rem; border-radius: 20px; }
   .card h3 { font-size: 1.2rem; }
   .card p { font-size: 0.95rem; }
   .card a { font-size: 0.95rem; }
  #contact p { font-size:1.1rem; }
-  .contact-block { 
-    height:150px; 
-    border-radius:20px; 
-    margin:0 1rem;
-    display:flex;
-    justify-content:center;
-    align-items:center;
   }
-}
 
 </style>
 </head>
 <body>
 <nav>
-  <div class="logo">Aylin</div>
-  <ul>
+    <ul>
     <li><a href="#home" data-section="home">Home</a></li>
     <li><a href="#updates" data-section="updates">Updates</a></li>
     <li><a href="#articles" data-section="articles">Articles</a></li>
@@ -247,12 +469,13 @@ nav li { list-style: none; }
 
 <section id="home" class="hero">
   <h1>Aylin Muzaffarli</h1>
-  <p>
-    Welcome. This space contains my work.<br>
-    Projects are listed in the Projects section.<br>
-    Contact details are available in the Contact section.<br>
-    Check out my <a href="https://www.youtube.com/channel/UCsunkYku59IBKHwdb_pLzJw" target="_blank" class="hero-link"><strong>YouTube channel</strong></a>.
-  </p>
+
+  <div class="hero-text">
+    <p>I break things down to understand how they work — from first principles.</p>
+    <p>Then I turn that understanding into systems, tools, and ideas — ones I wish existed.</p>
+    <p>This is a record of that work.</p>
+  </div>
+
 </section>
 
 <section id="updates">
@@ -274,24 +497,24 @@ nav li { list-style: none; }
 <section id="articles">
   <h2 class="section-title">Update Summaries</h2>
   <div class="card-grid">
-<a href="https://www.aylinmuzaffarli.com/curiosity-article/" target="_blank" class="card-link">
+<a href="https://www.aylinmuzaffarli.com/curiosity-article/" target="_blank" class="card-link article-item">
   <div class="card">
     <h3>27.04.2026</h3>
     <p>Curiosity platform launch</p>
   </div>
 </a>
 
-    <a href="http://www.aylinmuzaffarli.com/my-first-circuit/" target="_blank" class="card-link">
+    <a href="http://www.aylinmuzaffarli.com/my-first-circuit/" target="_blank" class="card-link article-item">
       <div class="card">
         <h3>31.03.2026</h3>
         <p>My first electronics project</p>
       </div>
     </a>
 
-    <a href="https://www.aylinmuzaffarli.com/updates-page" target="_blank" class="card-link">
+    <a href="https://www.aylinmuzaffarli.com/updates-page" target="_blank" class="card-link article-item">
       <div class="card">
         <h3>20.02.2026</h3>
-      
+      <p>Trajectory — Rocket Mission Calculator launch</p>
       </div>
     </a>
 
@@ -305,9 +528,11 @@ nav li { list-style: none; }
   <div class="card-grid">
 <div class="card">
   <h3>Curiosity Platform</h3>
-  <p>A space built around structured thinking and questions.</p>
-  <a href="https://www.aylinmuzaffarli.com/curiosity/" target="_blank">Project Link</a>
+  <p>Structured thinking through questions.</p>
+  <p class="status-chip">[ Actively evolving ]</p>
+  <a href="https://www.aylinmuzaffarli.com/curiosity/" target="_blank">Open project →</a>
 </div>
+
 <div class="card">
   <h3>Trajectory — Rocket Mission Calculator</h3>
   <p>Trajectory lets you calculate rocket missions with real physics. Explore propulsion, Δv, and acceleration with easy-to-use tools and references.</p>
@@ -315,7 +540,7 @@ nav li { list-style: none; }
 </div>
 <div class="card">
   <h3>Productivity Graph – Personal Task Visualization Tool</h3>
-  <p>A simple tool to track and visualize your daily goal-aligned tasks.</p>
+  <p>A tool to track and visualize your daily goal-aligned tasks.</p>
   <a href="http://www.aylinmuzaffarli.com/productivity-graph/" target="_blank">Visit Tool</a>
   <p class="free-extract">
     Full guide: <a href="https://drive.google.com/file/d/1iYjMlo7EpTPZhBv_ZJ9HCJa73Y_PmLPk/view?usp=sharing" target="_blank">View PDF</a>
@@ -370,8 +595,80 @@ nav li { list-style: none; }
 
 <section id="contact">
   <h2 class="section-title">Contact</h2>
+
   <div class="contact-block">
-    <p><a href="mailto:muzaffaraylin@gmail.com">muzaffaraylin@gmail.com</a></p>
+    <p class="contact-note">Send a message using the form below.</p>
+
+    <form id="contact-form" action="https://formspree.io/f/mnjwnwra" method="POST" style="width:100%; display:flex; flex-direction:column; gap:1rem;">
+      <input
+        type="text"
+        name="name"
+        placeholder="Your name"
+        required
+        style="padding:0.85rem 1rem; border:1px solid var(--border-steel); border-radius:12px; font-family:inherit;"
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email"
+        required
+        style="padding:0.85rem 1rem; border:1px solid var(--border-steel); border-radius:12px; font-family:inherit;"
+      />
+
+      <input type="text" name="_gotcha" style="display:none">
+
+      <textarea
+        name="message"
+        placeholder="Your message"
+        required
+        rows="5"
+        style="padding:0.85rem 1rem; border:1px solid var(--border-steel); border-radius:12px; font-family:inherit; resize:vertical;"
+      ></textarea>
+
+      <button
+        type="submit"
+        style="padding:0.85rem 1rem; border:none; border-radius:12px; background: var(--accent-violet); color:#000; font-weight:600; cursor:pointer;"
+      >
+        Send message
+      </button>
+
+      <p id="form-status" style="margin:0; font-size:0.95rem; color: var(--text-secondary);"></p>
+    </form>
+  </div>
+
+  <div class="social-section">
+    <p class="social-title">Find my work across platforms</p>
+
+    <div class="social-links">
+      <a href="https://github.com/aylinmuzaffarli" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-3.2 19.4c.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 1.6-.7 1.9-1 .1-.7.4-1 .7-1.2-2.2-.3-4.5-1.1-4.5-4.8 0-1 .4-1.8 1-2.4-.1-.3-.4-1.2.1-2.4 0 0 .8-.3 2.5 1a8.6 8.6 0 0 1 4.6 0c1.7-1.3 2.5-1 2.5-1 .5 1.2.2 2.1.1 2.4.6.6 1 1.4 1 2.4 0 3.7-2.3 4.5-4.5 4.8.4.4.8 1 .8 2v2.9c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/>
+        </svg>
+        <span>GitHub</span>
+      </a>
+
+      <a href="https://www.youtube.com/@aylinmuzaffarli" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21.6 7.2a2.9 2.9 0 0 0-2.1-2.1C17.6 4.7 12 4.7 12 4.7s-5.6 0-7.5.4A2.9 2.9 0 0 0 2.4 7.2 30.8 30.8 0 0 0 2 12a30.8 30.8 0 0 0 .4 4.8 2.9 2.9 0 0 0 2.1 2.1c1.9.4 7.5.4 7.5.4s5.6 0 7.5-.4a2.9 2.9 0 0 0 2.1-2.1A30.8 30.8 0 0 0 22 12a30.8 30.8 0 0 0-.4-4.8ZM10 15.2V8.8l5.5 3.2L10 15.2Z"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+
+      <a href="https://www.instagram.com/aylin.muzaffarli" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5ZM12 9a3 3 0 1 0 3 3 3 3 0 0 0-3-3Zm5.8-3.1a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1Z"/>
+        </svg>
+        <span>Instagram</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/aylin-muzaffarli-161261370" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.94 6.5A1.94 1.94 0 1 1 5 4.56 1.94 1.94 0 0 1 6.94 6.5ZM5.2 8.9h3.5V20H5.2ZM10.1 8.9h3.4v1.5h.1a3.7 3.7 0 0 1 3.3-1.8c3.5 0 4.1 2.3 4.1 5.2V20h-3.5v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20h-3.5Z"/>
+        </svg>
+        <span>LinkedIn</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -381,7 +678,8 @@ nav li { list-style: none; }
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-// --- Reveal cards and section titles ---
+
+// Reveal cards and section titles
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
@@ -391,37 +689,77 @@ const revealObserver = new IntersectionObserver(entries => {
   });
 }, {threshold: 0.15});
 
-document.querySelectorAll('.card, .section-title, .article-item').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.card, .section-title, .article-item, .contact-block').forEach(el => revealObserver.observe(el));
 
-// --- Nav underline highlighting ---
+
+// Nav underline highlighting
 const navLinks = document.querySelectorAll('nav a');
 
-function setActive(id){
-  navLinks.forEach(link => link.classList.toggle('active', link.dataset.section === id));
-}
-
-// Click updates underline immediately
-navLinks.forEach(link => {
-  link.addEventListener('click', () => setActive(link.dataset.section));
-});
-
-// Hashchange updates underline
-window.addEventListener('hashchange', () => {
-  setActive(location.hash.replace('#','') || 'home');
-});
-
-// Scroll-based updates (simple)
-const sections = document.querySelectorAll('section');
-window.addEventListener('scroll', () => {
-  let scrollPos = window.scrollY + window.innerHeight/2;
-  sections.forEach(section => {
-    if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight){
-      setActive(section.id);
+function setActive(id) {
+  navLinks.forEach(link => {
+    // Check if the data-section matches the current ID
+    if (link.dataset.section === id) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
   });
+}
+
+// Update active link on scroll
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    // We subtract a bit (150px) to trigger the change slightly before 
+    // the section hits the very top of the screen
+    if (window.scrollY >= sectionTop - 150) {
+      current = section.getAttribute('id');
+    }
+  });
+  setActive(current);
 });
+
 
 // Initial active link
 setActive(location.hash.replace('#','') || 'home');
-</script></body>
-</html>
+</script>
+<script>
+const form = document.getElementById('contact-form');
+const status = document.getElementById('form-status');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  status.textContent = 'Sending...';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    const data = await response.json().catch(() => null);
+
+    if (response.ok) {
+      form.reset();
+      status.textContent = 'Thanks! Your message has been sent.';
+    } else {
+      console.log('Formspree status:', response.status);
+      console.log('Formspree response:', data);
+
+      status.textContent =
+        data?.errors?.[0]?.message ||
+        data?.error ||
+        `Something went wrong (${response.status}).`;
+    }
+  } catch (error) {
+    console.error(error);
+    status.textContent = 'Something went wrong. Please try again.';
+  }
+});
+</script>
+</body>
+</html> 
