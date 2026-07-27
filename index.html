@@ -28,16 +28,36 @@
   --accent-violet: #CCCCCC;
   
   /* GLASSMORPHISM SETTINGS */
-  --glass-white: rgba(255, 255, 255, 0.2); /* Transparent white */
-  --glass-blur: blur(20px);                /* Stronger blur */
-  --glass-border: rgba(0, 0, 0, 0.08);     /* Subtle outline */
-  --glass-radius: 35px;                    /* More rounded corners */
-  --shadow-elegant: 0 8px 32px rgba(0, 0, 0, 0.06); /* Softer, larger shadow */
---nav-underline: var(--accent-violet);
---border-steel: rgba(0, 0, 0, 0.1);
---shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.05);
+  --glass-white: rgba(255, 255, 255, 0.2); 
+  --glass-blur: blur(20px);               
+  --glass-border: rgba(0, 0, 0, 0.08);     
+  --glass-radius: 35px;                    
+  --shadow-elegant: 0 8px 32px rgba(0, 0, 0, 0.06); 
+  --nav-underline: var(--accent-violet);
+  --border-steel: rgba(0, 0, 0, 0.1);
+  --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
+.project-category-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.category-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.category-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.5;
+}
 
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -56,10 +76,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 2.5rem; /* Increased padding for a cleaner look */
-  align-items: stretch;
+  padding: 2.5rem; 
   
-  /* Glassmorphism - matching your cards */
   background: var(--glass-white);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
@@ -67,20 +85,13 @@ body {
   border-radius: var(--glass-radius);
   box-shadow: var(--shadow-elegant);
   
-  /* Ensure it doesn't have a fixed height so the form can fit */
   height: auto !important; 
 }
 
-/* Style the inputs to match the glass vibe */
-/* Style the inputs to match the glass vibe */
 #contact-form input, 
 #contact-form textarea {
-  /* This light grey background makes the box visible against the white page */
   background: rgba(0, 0, 0, 0.03); 
-  
-  /* We use a solid hex or darker rgba for the border so it stands out */
   border: 1px solid #cccccc; 
-  
   border-radius: 12px;
   padding: 0.85rem 1rem;
   font-family: inherit;
@@ -92,20 +103,19 @@ body {
 #contact-form input:focus, 
 #contact-form textarea:focus {
   outline: none;
-  /* Turns black when you click it to show it is active */
   border-color: #000000; 
   background: #ffffff;
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
 }
 
-/* This ensures the placeholder text is visible but subtle */
 #contact-form ::placeholder {
   color: #888888;
-}.contact-block p { 
+}
+
+.contact-block p { 
   margin:0; 
   font-size:1.3rem; 
   font-weight:500; 
-  /* remove this line */
 }
 
 .hero {
@@ -117,9 +127,8 @@ body {
   min-height: 100svh;
   background: var(--primary-navy);
   padding: 2rem 1.25rem;
-  scroll-margin-top: 100px; /* Crucial for the navbar links to land correctly */
+  scroll-margin-top: 100px;
 } 
-
 
 .hero-link {
   color: var(--text-secondary);
@@ -139,38 +148,35 @@ nav {
   padding: 1.5rem 3rem;
   background: var(--glass-white);
   backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur); /* For Safari support */
+  -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid var(--glass-border);
 }
 nav ul { list-style: none; display: flex; gap: 2.5rem; }
-/* Base Navigation Link Style */
+
 nav a {
   text-decoration: none; 
   color: var(--text-primary); 
   font-weight: 600;
   transition: opacity 0.25s ease;
   padding: 0.5rem 0;
-  position: relative; /* Required for the underline positioning */
+  position: relative;
 }
 
-/* The Underline (Hidden by default) */
 nav a::after {
   content: "";
   position: absolute;
-  bottom: -2px; /* Position it slightly below the text */
+  bottom: -2px;
   left: 0;
-  width: 0;    /* Start with no width */
-  height: 2px; /* Thickness of the line */
+  width: 0;    
+  height: 2px; 
   background-color: var(--nav-underline);
-  transition: width 0.3s ease; /* This makes the line "grow" */
+  transition: width 0.3s ease;
 }
 
-/* The Underline (Visible when active) */
 nav a.active::after {
-  width: 100%; /* Line grows to full width of the text */
+  width: 100%;
 }
 
-/* Subtle hover effect for non-active links */
 nav a:hover {
   opacity: 0.6;
 }
@@ -214,18 +220,15 @@ nav a:hover {
   color: var(--text-secondary);
   line-height: 1;
 
-  /* MATCHING PROJECT CARDS EXACTLY */
   background: var(--glass-white);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: 16px; /* Slightly smaller radius than large cards looks better for buttons */
+  border-radius: 16px;
   box-shadow: var(--shadow-elegant);
   
   transition: all 0.3s ease;
 }
-
-
 
 .social-link svg {
   width: 18px;
@@ -240,36 +243,18 @@ nav a:hover {
 }
 
 .social-link:hover {
-  /* Match the text color change */
   color: var(--text-primary);
-  
-  /* Match the card's physical lift (-5px) */
   transform: translateY(-5px);
-  
-  /* Match the card's glass highlight exactly (0.3 opacity) */
   background: rgba(255, 255, 255, 0.3); 
-  
-  /* REMOVED: border-color change to keep it subtle like project cards */
-  
-  /* Match the card's shadow depth */
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-  
   transition: all 0.3s ease;
 }
 
 .card-link {
-  text-decoration: none; /* removes underline */
-  color: inherit;        /* keeps text color */
-  display: block;        /* fills card space */
+  text-decoration: none; 
+  color: inherit;        
+  display: block;        
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-.contact-note {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  color: var(--text-secondary);
-  font-weight: 400;
 }
 
 .card-link p {
@@ -279,14 +264,11 @@ nav a:hover {
   color: var(--text-secondary);
 }
 
-
-nav a:hover { opacity: 0.7; }
-
-/* HERO */
 .hero h1 {
   font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; letter-spacing: 0.02em;
   opacity: 0; animation: slowFade 3s ease-out forwards;
 }
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px,1fr));
@@ -306,16 +288,13 @@ nav a:hover { opacity: 0.7; }
   padding: 2rem;
   text-align: center;
   font-weight: 600;
-    border: 1px solid var(--border-steel);
   border-radius: 24px;
-  box-shadow: 0 4px 16px var(--shadow-subtle);
   transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
-  opacity: 0;  /* for reveal animation */
-background: var(--glass-white);
+  opacity: 0;  
+  background: var(--glass-white);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: var(--glass-radius);
   box-shadow: var(--shadow-elegant);
 }
 .card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
@@ -325,20 +304,9 @@ background: var(--glass-white);
 .card.show { opacity: 1; }
 .card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.3); /* Slightly less transparent on hover */
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+  background: rgba(255, 255, 255, 0.3); 
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1); 
   transition: all 0.3s ease;
-}
-
-.hero h1 {
-  font-size: clamp(3.5rem, 9vw, 7rem);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  margin: 0 0 1rem 0;
-  text-align: center;
-  line-height: 1.05;
-  opacity: 0;
-  animation: slowFade 3s ease-out forwards;
 }
 
 .hero-text {
@@ -360,22 +328,9 @@ background: var(--glass-white);
   opacity: 0;
   animation: slowFade 3s ease-out 0.5s forwards;
 }
-.status-chip {
-  display: inline-block;
-  margin-bottom: 1rem;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid rgba(59, 130, 246, 0.25);
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.08);
-  line-height: 1;
-}
 
 /* Animations */
 @keyframes slowFade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes hang { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-3px) rotate(0.5deg); } 100% { transform: translateY(-2px) rotate(0deg); } }
 
 /* SECTIONS */
 section { padding: 10rem 0; width: 100%; position: relative; scroll-margin-top: 100px; }
@@ -395,65 +350,151 @@ footer { text-align:center; padding:3rem; font-size:1rem; border-top:1px solid v
 /* SHOW CLASS */
 .show { opacity:1; transform:translateY(0); }
 
-/* MOBILE */
+/* --- Flagship Frame Styles --- */
+.flagship-frame {
+  border: 1px solid #e0e0e0; 
+  border-radius: 35px; 
+  padding: 4.5rem 3rem; 
+  position: relative;
+  margin-bottom: 3rem;
+  background: rgba(0, 0, 0, 0.01); 
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* EUB header title centered at the top of the frame */
+.flagship-frame-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.flagship-grid {
+  grid-template-columns: repeat(3, 1fr) !important; 
+  gap: 2.5rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Column wrapper grouping the top label and the card */
+.flagship-column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.flagship-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 400; /* Non-bold overall */
+  margin-bottom: 1rem;
+  text-align: center; /* Centered top of each card column */
+}
+
+/* Only make the first letter bold */
+.flagship-label::first-letter {
+  font-weight: 700;
+}
+
+.flagship-frame .card {
+  height: 320px; /* Exact same height as other cards */
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flagship-frame .card h3 {
+  font-size: 1.4rem;
+  margin: auto 0; 
+  font-weight: 700;
+}
+
+.flagship-frame .card a {
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+  .flagship-grid {
+    grid-template-columns: 1fr !important; 
+  }
+  
+  .flagship-frame {
+    padding: 3rem 1.5rem;
+  }
+}
+
 @media(max-width:768px){
-.hero {
-  min-height: 100svh;
-  padding: 1.5rem 1rem;
-}
+  .hero {
+    min-height: 100svh;
+    padding: 1.5rem 1rem;
+  }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 10vw, 4rem);
-}
+  .hero h1 {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
 
-.hero-text {
-  max-width: 95%;
-  gap: 0.85rem;
-}
+  .hero-text {
+    max-width: 95%;
+    gap: 0.85rem;
+  }
 
-.hero-text p {
-  font-size: 1.05rem;
-}
- nav { 
+  .hero-text p {
+    font-size: 1.05rem;
+  }
+
+  nav { 
     flex-direction: column; 
     padding:1rem; 
     gap:1.5rem; 
-    align-items: center;   /* centers everything */
+    align-items: center;   
   }
-     nav ul { 
+  
+  nav ul { 
     display: flex; 
-    justify-content: center;  /* center links horizontally */
+    justify-content: center;  
     gap: 1rem; 
-    flex-wrap: wrap;          /* optional: allow wrapping if needed */
+    flex-wrap: wrap;          
     padding: 0; 
     margin: 0;
   }
-.social-links {
-  gap: 0.6rem;
-}
+  
+  .social-links {
+    gap: 0.6rem;
+  }
 
-.social-link {
-  padding: 0.65rem 0.85rem;
-  font-size: 0.92rem;
-}
-nav li { list-style: none; }  
+  .social-link {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.92rem;
+  }
+  
+  nav li { list-style: none; }   
   nav a { font-size: 0.95rem; padding: 0.5rem 0; }
   .hero { min-height:80vh; padding:1rem; }
-  .hero h1 { font-size: clamp(2.5rem,7vw,4rem); }
-  .hero p { font-size:1.2rem; max-width:90%; }
   section { padding:5rem 1rem; }
   .article-list { padding:0.5rem; }
   .article-item a { font-size:1rem; padding:0.5rem 0; }
+  footer { font-size:0.9rem; padding:2rem 1rem; }
   
-   footer { font-size:0.9rem; padding:2rem 1rem; }
-.card-grid { grid-template-columns: 1fr; gap: 2rem; padding: 0 1rem; }
+  .card-grid { grid-template-columns: 1fr; gap: 2rem; padding: 0 1rem; }
   .card { height: auto; min-height: 280px; padding: 1.5rem; border-radius: 20px; }
   .card h3 { font-size: 1.2rem; }
   .card p { font-size: 0.95rem; }
   .card a { font-size: 0.95rem; }
- #contact p { font-size:1.1rem; }
-  }
-
+  #contact p { font-size:1.1rem; }
+}
 </style>
 </head>
 <body>
@@ -475,7 +516,6 @@ nav li { list-style: none; }
     <p>Then I turn that understanding into systems, tools, and ideas — ones I wish existed.</p>
     <p>This is a record of that work.</p>
   </div>
-
 </section>
 
 <section id="updates">
@@ -505,7 +545,6 @@ nav li { list-style: none; }
   </div>
 </a>
 
-
 <a href="https://www.aylinmuzaffarli.com/curiosity-article/" target="_blank" class="card-link article-item">
   <div class="card">
     <h3>27.04.2026</h3>
@@ -528,106 +567,152 @@ nav li { list-style: none; }
     </a>
 
   </div>
-</section> 
-
-
+</section>  
 
 <section id="projects">
-   <h2 class="section-title">My Projects</h2>
+  <h2 class="section-title">My Projects</h2>
+
+  <!-- FLAGSHIP PROJECTS SECTION START -->
+  <div class="project-category-header">
+    <h3 class="category-title">Flagship Projects</h3>
+    <p class="category-desc">These are the projects I’m most focused on. They represent my current interests and the direction of my work.</p>
+  </div>
+
+  <!-- The "frame" surrounding the 3 columns -->
+  <div class="flagship-frame">
+    
+    <!-- EUB title on top of Understand (middle top of frame) -->
+    <div class="flagship-frame-title">EUB</div>
+
+    <!-- Grid of 3 columns -->
+    <div class="card-grid flagship-grid">
+      
+      <!-- 1. Sky Column (Explore label on top center) -->
+      <div class="flagship-column">
+        <p class="flagship-label">Explore</p>
+        <div class="card">
+          <h3>Sky</h3>
+          <a href="https://www.aylinmuzaffarli.com/curiosity/sky/" target="_blank">Open →</a>
+        </div>
+      </div>
+
+      <!-- 2. Curiosity Column (Understand label on top center) -->
+      <div class="flagship-column">
+        <p class="flagship-label">Understand</p>
+        <div class="card">
+          <h3>Curiosity</h3>
+          <a href="https://www.aylinmuzaffarli.com/curiosity/" target="_blank">Open →</a>
+        </div>
+      </div>
+
+      <!-- 3. Maker Column (Build label on top center) -->
+      <div class="flagship-column">
+        <p class="flagship-label">Build</p>
+        <div class="card">
+          <h3>[Your Maker Project Title]</h3>
+          <a href="#" target="_blank">Open →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Personal Tools Category -->
+  <div class="project-category-header" style="margin-top: 5rem;">
+    <h3 class="category-title">Personal Tools</h3>
+    <p class="category-desc">These tools were created to solve problems I encountered on a daily basis.</p>
+  </div>
   <div class="card-grid">
+    <div class="card">
+      <h3>Study Session Tracker (Local Tool)</h3>
+      <p>
+        I built my first local tool for tracking study sessions.  
+        It helps me log what I study, set targets, and track weekly progress in a browser-based system.
+      </p>
+      <p>
+        <a href="https://github.com/aylinmuzaffarli/study-tracker" target="_blank">
+          GitHub repository →
+        </a>
+      </p>
+    </div>
 
+    <div class="card">
+      <h3>mark</h3>
+      <p>Save the exact point you stopped in any lecture, lesson, or study session and continue from there without losing context.</p>
+      <a href="https://www.aylinmuzaffarli.com/mark/" target="_blank">Open project →</a>
+    </div>
 
-<div class="card">
-  <h3>Study Session Tracker (Local Tool)</h3>
+    <div class="card">
+      <h3>Productivity Graph – Personal Task Visualization Tool</h3>
+      <p>A tool to track and visualize your daily goal-aligned tasks.</p>
+      <a href="https://www.aylinmuzaffarli.com/productivity-graph/" target="_blank">Visit Tool</a>
+      <p class="free-extract">
+        Full guide: <a href="https://drive.google.com/file/d/1iYjMlo7EpTPZhBv_ZJ9HCJa73Y_PmLPk/view?usp=sharing" target="_blank">View PDF</a>
+      </p>
+      <p class="free-extract">
+        Feedback: <a href="https://docs.google.com/forms/d/e/1FAIpQLSePrZiIGN5ukCjycwCfsLbDLWyOosKcLa2TK--WWvXawwE1qw/viewform?usp=sf_link" target="_blank">Feedback Form</a>
+      </p>
+    </div>
 
-  <p>
-    I built my first local tool for tracking study sessions.  
-    It helps me log what I study, set targets, and track weekly progress in a browser-based system.
-  </p>
+    <div class="card">
+      <h3>Answer Checker — Personal Tool</h3>
+      <p>Tool to mark test answers correct or wrong, preventing memorization during practice.</p>
+      <a href="https://aylinmuzaffarli.github.io/answer-checker/" target="_blank">Try the Tool</a>
+    </div>
+  </div>
 
-  <p>
-    <a href="https://github.com/aylinmuzaffarli/study-tracker" target="_blank">
-      GitHub repository →
-    </a>
-  </p>
-</div>
-
-
-<div class="card">
-  <h3>mark</h3>
-  <p>Save the exact point you stopped in any lecture, lesson, or study session and continue from there without losing context.</p>
-  <a href="https://www.aylinmuzaffarli.com/mark/" target="_blank">Open project →</a>
-</div>
-
-
-<div class="card">
-  <h3>Curiosity Platform</h3>
-  <p>
-    Structured thinking through questions.<br>
-    Now includes the <a href="https://www.aylinmuzaffarli.com/curiosity/sky/" target="_blank" style="text-decoration: underline;">Sky branch</a>.
-  </p>
-  <p class="status-chip">[ Actively evolving ]</p>
-  <a href="https://www.aylinmuzaffarli.com/curiosity/" target="_blank">Open project →</a>
-</div>
-
-<div class="card">
-  <h3>Trajectory — Rocket Mission Calculator</h3>
-  <p>Trajectory lets you calculate rocket missions with real physics. Explore propulsion, Δv, and acceleration with easy-to-use tools and references.</p>
-  <a href="https://www.aylinmuzaffarli.com/Trajectory/" target="_blank">Project Link</a>
-</div>
-<div class="card">
-  <h3>Productivity Graph – Personal Task Visualization Tool</h3>
-  <p>A tool to track and visualize your daily goal-aligned tasks.</p>
-  <a href="https://www.aylinmuzaffarli.com/productivity-graph/" target="_blank">Visit Tool</a>
-  <p class="free-extract">
-    Full guide: <a href="https://drive.google.com/file/d/1iYjMlo7EpTPZhBv_ZJ9HCJa73Y_PmLPk/view?usp=sharing" target="_blank">View PDF</a>
-  </p>
-  <p class="free-extract">
-    Feedback: <a href="https://docs.google.com/forms/d/e/1FAIpQLSePrZiIGN5ukCjycwCfsLbDLWyOosKcLa2TK--WWvXawwE1qw/viewform?usp=sf_link" target="_blank">Feedback Form</a>
-  </p>
-</div>
+  <!-- Earlier Work Category -->
+  <div class="project-category-header" style="margin-top: 5rem;">
+    <h3 class="category-title">Earlier Work</h3>
+    <p class="category-desc">These are the projects I created earlier. While they no longer reflect my current interests, they remain an essential part of my journey as a builder.</p>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Trajectory — Rocket Mission Calculator</h3>
+      <p>Trajectory lets you calculate rocket missions with real physics. Explore propulsion, Δv, and acceleration with easy-to-use tools and references.</p>
+      <a href="https://www.aylinmuzaffarli.com/Trajectory/" target="_blank">Project Link</a>
+    </div>
 
     <div class="card">
       <h3>AverlinMz — AI Chatbot</h3>
       <p>Personalized chatbot for study assistance using AI for context and emotional support.</p>
       <a href="https://aylinmuzaffarli.github.io/averlinmz-site/" target="_blank">Project Link</a>
     </div>
-    <div class="card">
-      <h3>Answer Checker — Personal Tool</h3>
-      <p>Tool to mark test answers correct or wrong, preventing memorization during practice.</p>
-      <a href="https://aylinmuzaffarli.github.io/answer-checker/" target="_blank">Try the Tool</a>
-    </div>
+
     <div class="card">
       <h3>AI Learning Map — Beginner-Friendly Guide</h3>
       <p>Compact roadmap with tasks and resources for quick AI learning.</p>
       <a href="https://www.aylinmuzaffarli.com/ai-learning-map/" target="_blank">View the Map</a>
     </div>
+
     <div class="card">
       <h3>Atomaroid</h3>
       <p>Platform for physics Olympiad preparation with problems and recommendations for Russian-speaking students.</p>
       <a href="https://aylinmuzaffarli.github.io/Atomaroid/" target="_blank">Project Link</a>
     </div>
+
     <div class="card">
       <h3>CS50 at 14</h3>
       <p>Completion of Harvard’s CS50 course, including a self-built game and learning journal.</p>
       <a href="https://aylinmuzaffarli.github.io/cs50-at-14/" target="_blank">Project Link</a>
     </div>
+
     <div class="card">
       <h3>System One — Published Book</h3>
       <p>Book on Amazon exploring cognitive patterns and improved thinking awareness.</p>
       <ul>
-  <li><a href="https://www.amazon.com/dp/B0FL7QVBFM" target="_blank">Kindle eBook</a></li>
-  <li><a href="https://www.amazon.com/dp/B0FLD454M8" target="_blank">Paperback</a></li>
-</ul>
-           <a href="https://drive.google.com/file/d/1C2J6kYRfKeWcWTUU5QdA10KkWbfgbsF2/view?usp=drive_link" target="_blank">Download Free Extract</a>
+        <li><a href="https://www.amazon.com/dp/B0FL7QVBFM" target="_blank">Kindle eBook</a></li>
+        <li><a href="https://www.amazon.com/dp/B0FLD454M8" target="_blank">Paperback</a></li>
+      </ul>
+      <a href="https://drive.google.com/file/d/1C2J6kYRfKeWcWTUU5QdA10KkWbfgbsF2/view?usp=drive_link" target="_blank">Download Free Extract</a>
     </div>
+
     <div class="card">
       <h3>Understanding AI — How Machines Think vs Humans</h3>
       <p>Guide explaining AI decision-making with examples from my chatbot.</p>
       <a href="https://docs.google.com/document/d/1pzatz5bj6Ny-Hpx4EkdSN_vyG1kFElO6Ibc3knIH2Gc/preview" target="_blank">Read the Guide</a>
     </div>
   </div>
-
 </section>
 
 <section id="contact">
@@ -635,12 +720,12 @@ nav li { list-style: none; }
 
   <div class="contact-block">
     <p class="contact-note" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
-  Send a message using the form below or reach me directly at
-  <a href="mailto:muzaffaraylin@gmail.com" 
-     style="color: var(--text-secondary); text-decoration: none; border-bottom: 1px solid var(--accent-violet); transition: color 0.2s ease;">
-     muzaffaraylin@gmail.com
-  </a>
-</p>
+      Send a message using the form below or reach me directly at
+      <a href="mailto:muzaffaraylin@gmail.com" 
+         style="color: var(--text-secondary); text-decoration: none; border-bottom: 1px solid var(--accent-violet); transition: color 0.2s ease;">
+        muzaffaraylin@gmail.com
+      </a>
+    </p>
 
     <form id="contact-form" action="https://formspree.io/f/mnjwnwra" method="POST" style="width:100%; display:flex; flex-direction:column; gap:1rem;">
       <input
@@ -722,7 +807,6 @@ nav li { list-style: none; }
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Reveal cards and section titles
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
@@ -734,13 +818,10 @@ const revealObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.card, .section-title, .article-item, .contact-block').forEach(el => revealObserver.observe(el));
 
-
-// Nav underline highlighting
 const navLinks = document.querySelectorAll('nav a');
 
 function setActive(id) {
   navLinks.forEach(link => {
-    // Check if the data-section matches the current ID
     if (link.dataset.section === id) {
       link.classList.add('active');
     } else {
@@ -749,15 +830,11 @@ function setActive(id) {
   });
 }
 
-// Update active link on scroll
 const sections = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
   let current = "";
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    // We subtract a bit (150px) to trigger the change slightly before 
-    // the section hits the very top of the screen
     if (window.scrollY >= sectionTop - 150) {
       current = section.getAttribute('id');
     }
@@ -765,8 +842,6 @@ window.addEventListener('scroll', () => {
   setActive(current);
 });
 
-
-// Initial active link
 setActive(location.hash.replace('#','') || 'home');
 </script>
 <script>
@@ -790,9 +865,6 @@ form.addEventListener('submit', async (e) => {
       form.reset();
       status.textContent = 'Thanks! Your message has been sent.';
     } else {
-      console.log('Formspree status:', response.status);
-      console.log('Formspree response:', data);
-
       status.textContent =
         data?.errors?.[0]?.message ||
         data?.error ||
@@ -805,4 +877,4 @@ form.addEventListener('submit', async (e) => {
 });
 </script>
 </body>
-</html> 
+</html>
